@@ -1,3 +1,3 @@
 - [Home](README.md)
 - AI
-  - [Supervised vs Unsupervised](AI/supervised-vs-unsupervised.md)
+  - [Supervised vs Unsupervised](ai/supervised-vs-unsupervised.md)
