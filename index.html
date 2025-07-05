@@ -10,12 +10,6 @@
   <body>
     <div id="app">Loading...</div>
 
-   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@1.0.0/dist/docsify-mermaid.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
-
-
-
     <script>
   window.$docsify = {
     name: 'Learning Docs',
@@ -25,24 +19,28 @@
       '/ai/_sidebar.md': '/_sidebar.md',
       '/.*/_sidebar.md': '/_sidebar.md'
     },
+    mermaidConfig: {
+      startOnLoad: true,
+      theme: 'default'
+    },
     markdown: {
       renderer: {
         code: function (code, lang) {
           if (lang === 'mermaid') {
-            return (
-              '<div class="mermaid">' + code + '</div>'
-            );
+            return '<div class="mermaid">' + code + '</div>';
           }
           return this.origin.code.apply(this, arguments);
         }
       }
-    },
-    mermaidConfig: {
-      startOnLoad: true,
-      theme: 'default'
     }
   };
 </script>
+
+<!-- Load mermaid and plugins AFTER Docsify config -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@1.0.0/dist/docsify-mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
 
 
   </body>
