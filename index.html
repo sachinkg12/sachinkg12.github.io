@@ -25,12 +25,25 @@
       '/ai/_sidebar.md': '/_sidebar.md',
       '/.*/_sidebar.md': '/_sidebar.md'
     },
+    markdown: {
+      renderer: {
+        code: function (code, lang) {
+          if (lang === 'mermaid') {
+            return (
+              '<div class="mermaid">' + code + '</div>'
+            );
+          }
+          return this.origin.code.apply(this, arguments);
+        }
+      }
+    },
     mermaidConfig: {
-    startOnLoad: true,
-    theme: 'default'
-  }
+      startOnLoad: true,
+      theme: 'default'
+    }
   };
 </script>
+
 
   </body>
 </html>
