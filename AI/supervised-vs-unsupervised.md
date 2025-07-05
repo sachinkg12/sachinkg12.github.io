@@ -106,5 +106,5 @@ sequenceDiagram
 
 Machine Learning isn't magic—it's patterns, logic, and the right tool for the right job. 
 
----
+
 
