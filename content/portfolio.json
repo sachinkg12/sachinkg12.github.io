@@ -580,24 +580,303 @@
   ],
   "service": [
     {
+      "id": "neurips-aiwild-2026",
+      "parent": "NeurIPS",
+      "title": "Agents in the Wild (3rd workshop)",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-09-08",
+      "url": "https://agentwild-workshop.github.io/neurips2026/",
+      "scope": "Workshop at NeurIPS 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/neurips-aiwild-2026"
+    },
+    {
+      "id": "neurips-globalsouthai-2026",
+      "parent": "NeurIPS",
+      "title": "Global South AI",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-09-13",
+      "url": "https://sites.google.com/view/globalsouthai-neurips26/home",
+      "scope": "Workshop at NeurIPS 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/neurips-globalsouthai-2026"
+    },
+    {
+      "id": "neurips-vlm4rwd-2026",
+      "parent": "NeurIPS",
+      "title": "VLM4RWD 2026",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-09-06",
+      "url": "https://vlm4rwd.github.io/",
+      "scope": "Workshop at NeurIPS 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/neurips-vlm4rwd-2026"
+    },
+    {
+      "id": "icml-aiwild",
+      "parent": "ICML",
+      "title": "Agents in the Wild (2nd workshop)",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 7,
+      "date": "2026-05-21",
+      "url": "https://agentwild-workshop.github.io/icml2026/",
+      "scope": "Workshop at ICML 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/icml-aiwild"
+    },
+    {
+      "id": "icml-workshops",
+      "parent": "ICML",
+      "title": "Trustworthy AI for Good",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 2,
+      "date": "2026-05-31",
+      "url": "https://trustworthy-ai-for-good.github.io/icml-2026.html",
+      "scope": "Workshop at ICML 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/icml-workshops"
+    },
+    {
+      "id": "emnlp-2026-industry",
+      "parent": "EMNLP",
+      "title": "EMNLP 2026 Industry Track",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 1,
+      "date": "2026-07-24",
+      "url": "https://2026.emnlp.org/calls/industry_track/",
+      "scope": "Industry track",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/emnlp-2026-industry"
+    },
+    {
+      "id": "groundlm-2026-area-chair",
+      "parent": "EMNLP",
       "title": "GroundLM 2026",
       "role": "Area chair",
-      "url": "https://www.guptasachinn.com/activities/groundlm-2026-area-chair"
+      "type": "Peer review",
+      "papers": 5,
+      "date": "2026-08-04",
+      "url": "https://groundlm.github.io/grouplm_emnlp2026/",
+      "scope": "Workshop at EMNLP 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/groundlm-2026-area-chair"
     },
     {
+      "id": "groundlm-2026",
+      "parent": "EMNLP",
+      "title": "GroundLM 2026",
+      "role": "Reviewer",
+      "type": "Peer review",
+      "papers": 1,
+      "date": "2026-07-12",
+      "url": "https://groundlm.github.io/grouplm_emnlp2026/",
+      "scope": "Workshop at EMNLP 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/groundlm-2026"
+    },
+    {
+      "id": "realm-2026",
+      "parent": "EMNLP",
+      "title": "REALM 2026",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 1,
+      "date": "2026-08-08",
+      "url": "https://realm-workshop.github.io/",
+      "scope": "Workshop at EMNLP 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/realm-2026"
+    },
+    {
+      "id": "acl-lt-edi",
+      "parent": "ACL",
+      "title": "LT-EDI 2026",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 1,
+      "date": "2026-04-08",
+      "url": "https://sites.google.com/view/lt-edi-2026/home",
+      "scope": "Workshop at ACL 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/acl-lt-edi"
+    },
+    {
+      "id": "efficient-reasoning-2026",
+      "parent": "COLM",
+      "title": "Efficient Reasoning (2nd workshop)",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-07-22",
+      "url": "https://wdlctc.github.io/efficient-reasoning-2026/",
+      "scope": "Workshop at COLM 2026",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/efficient-reasoning-2026"
+    },
+    {
+      "id": "acsac-2026-ae",
+      "parent": "IEEE",
+      "title": "ACSAC 2026",
+      "role": "Artifact evaluation committee",
+      "type": "Artifact evaluation",
+      "papers": 2,
+      "date": "2026-09-14",
+      "url": "https://www.acsac.org/",
+      "scope": "IEEE conference",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/acsac-2026-ae"
+    },
+    {
+      "id": "ieee-access",
+      "parent": "IEEE",
+      "title": "IEEE Access",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 1,
+      "date": "2026-09-15",
+      "url": "https://ieeeaccess.ieee.org/",
+      "scope": "Journal",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/ieee-access"
+    },
+    {
+      "id": "ieee-bigdata-2026",
+      "parent": "IEEE",
+      "title": "IEEE BigData 2026",
+      "role": "Technical program committee",
+      "type": "Peer review",
+      "papers": 2,
+      "date": "2026-08-23",
+      "url": "https://bigdataieee.org/BigData2026/",
+      "scope": "Main conference",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/ieee-bigdata-2026"
+    },
+    {
+      "id": "ieee-bigdata-2026-industry",
+      "parent": "IEEE",
+      "title": "IEEE BigData 2026 Industry",
+      "role": "Technical program committee",
+      "type": "Peer review",
+      "papers": 2,
+      "date": "2026-08-23",
+      "url": "https://bigdataieee.org/BigData2026/",
+      "scope": "Industry and Government Program",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/ieee-bigdata-2026-industry"
+    },
+    {
+      "id": "ieee-bigdata-2026-high-school",
+      "parent": "IEEE",
+      "title": "IEEE BigData 2026 High School",
+      "role": "Technical program committee",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-08-23",
+      "url": "https://bigdataieee.org/BigData2026/",
+      "scope": "High School Symposium",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/ieee-bigdata-2026-high-school"
+    },
+    {
+      "id": "ica-2026",
+      "parent": "IEEE",
+      "title": "IEEE ICA 2026",
+      "role": "Program committee member",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-08-13",
+      "url": "https://attend.ieee.org/ica-2026/",
+      "scope": "Conference on Agentic AI",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/ica-2026"
+    },
+    {
+      "id": "southeastcon-2027",
+      "parent": "IEEE",
+      "title": "IEEE SoutheastCon 2027",
+      "role": "Technical program committee",
+      "type": "Peer review",
+      "papers": 6,
+      "date": "2026-07-08",
+      "url": "https://ieeesoutheastcon.org/",
+      "scope": "IEEE Region 3 conference",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/southeastcon-2027"
+    },
+    {
+      "id": "ase-ae",
+      "parent": "IEEE/ACM",
       "title": "ASE 2026",
       "role": "Artifact evaluator",
-      "url": "https://www.guptasachinn.com/activities/ase-ae"
+      "type": "Artifact evaluation",
+      "papers": 1,
+      "date": "2026-07-12",
+      "url": "https://conf.researchr.org/track/ase-2026/ase-2026-artifact-evaluation",
+      "scope": "IEEE/ACM conference",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/ase-ae"
     },
     {
+      "id": "cais-artifact",
+      "parent": "ACM",
+      "title": "CAIS 2026",
+      "role": "Artifact evaluator",
+      "type": "Artifact evaluation",
+      "papers": 1,
+      "date": "2026-05-04",
+      "url": "https://www.caisconf.org/",
+      "scope": "ACM conference",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/cais-artifact"
+    },
+    {
+      "id": "acm-cais",
+      "parent": "ACM",
+      "title": "Agent Skills workshop at CAIS 2026",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 2,
+      "date": "2026-05-11",
+      "url": "https://www.agentskills-workshop.org/",
+      "scope": "First Workshop on Agent Skills",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/acm-cais"
+    },
+    {
+      "id": "cav-ae",
+      "parent": "CAV",
       "title": "CAV 2026",
       "role": "Artifact evaluator",
-      "url": "https://www.guptasachinn.com/activities/cav-ae"
+      "type": "Artifact evaluation",
+      "papers": 2,
+      "date": "2026-05-23",
+      "url": "https://conferences.i-cav.org/2026/",
+      "scope": "Computer Aided Verification",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/cav-ae"
     },
     {
-      "title": "IEEE",
-      "role": "Senior Member",
-      "url": "https://www.guptasachinn.com/activities/ieee-senior-member"
+      "id": "sasigd",
+      "parent": "SASIGD",
+      "title": "SASIGD 2026",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 6,
+      "date": "2026-04-05",
+      "url": "https://sasigd.org/committee.php",
+      "scope": "Program committee peer review",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/sasigd"
     }
   ],
   "writing": [
@@ -632,5 +911,32 @@
       "url": "https://events.linuxfoundation.org/confidential-computing-summit/features/poster-sessions/",
       "writeup": "https://www.guptasachinn.com/activities/confidential-computing-summit-2026"
     }
-  ]
+  ],
+  "memberships": [
+    {
+      "title": "IEEE",
+      "role": "Senior Member",
+      "url": "https://www.guptasachinn.com/activities/ieee-senior-member"
+    }
+  ],
+  "mentorship": {
+    "profile": "https://adplist.org/mentors/sachin-gupta-mpepaxnr",
+    "description": "I mentor engineers on backend systems, system design, and career development through ADPList.",
+    "recognitions": [
+      {
+        "title": "Top 10 Mentor",
+        "highlight": "Top 10",
+        "label": "Mentor",
+        "date": "2026-09",
+        "displayDate": "Sep 2026"
+      },
+      {
+        "title": "Top 1% Mentor",
+        "highlight": "Top 1%",
+        "label": "Mentor",
+        "date": "2026-10",
+        "displayDate": "Oct 2026"
+      }
+    ]
+  }
 }

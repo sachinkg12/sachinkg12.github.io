@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {home,projectsPage,researchPage,speakingPage,aboutPage,cvPage,projectPage,notFound,bibtex} from '../site/templates.mjs';
+import {home,projectsPage,researchPage,speakingPage,aboutPage,cvPage,projectPage,notFound,bibtex,researchServicePage} from '../site/templates.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const out=path.join(root,'dist');
 const d=JSON.parse(await fs.readFile(path.join(root,'content/portfolio.json'),'utf8'));
@@ -11,8 +11,10 @@ for(const p of d.papers) {
   if(!['Published','Accepted','Preprint'].includes(p.status))throw Error('Unrecognized paper status: '+p.id);
   if(!p.title||!p.authors||!p.url?.startsWith('https://'))throw Error('Incomplete paper: '+p.id);
 }
+if(new Set(d.service.map(s=>s.id)).size!==d.service.length)throw Error('Duplicate research-service record');
+for(const s of d.service)if(!Number.isInteger(s.papers)||s.papers<0||!s.url?.startsWith('https://'))throw Error('Invalid service record: '+s.id);
 await fs.rm(out,{recursive:true,force:true});await fs.mkdir(out,{recursive:true});
-const pages=new Map([['/',home(d)],['/projects/',projectsPage(d)],['/research/',researchPage(d)],['/speaking/',speakingPage(d)],['/about/',aboutPage(d)],['/cv/',cvPage(d)],['/404.html',notFound(d)]]);
+const pages=new Map([['/',home(d)],['/projects/',projectsPage(d)],['/research/',researchPage(d)],['/research-service/',researchServicePage(d)],['/speaking/',speakingPage(d)],['/about/',aboutPage(d)],['/cv/',cvPage(d)],['/404.html',notFound(d)]]);
 for(const p of d.projects)pages.set(`/projects/${p.slug}/`,projectPage(p,d));
 for(const [url,html]of pages){const dest=path.join(out,url.endsWith('/')?url+'index.html':url);await fs.mkdir(path.dirname(dest),{recursive:true});await fs.writeFile(dest,html);}
 await fs.mkdir(path.join(out,'assets'),{recursive:true});
@@ -37,5 +39,5 @@ await fs.writeFile(path.join(out,'notes/index.html'),notes);
 await fs.writeFile(path.join(out,'.nojekyll'),'');
 await fs.writeFile(path.join(out,'robots.txt'),'User-agent: *\nAllow: /\nSitemap: https://sachinkg12.github.io/sitemap.xml\n');
 await fs.writeFile(path.join(out,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${[...pages.keys()].filter(p=>p!=='/404.html').map(p=>`<url><loc>https://sachinkg12.github.io${p}</loc><lastmod>${d.updated}</lastmod></url>`).join('')}</urlset>\n`);
-await fs.writeFile(path.join(out,'build-info.json'),JSON.stringify({updated:d.updated,projects:d.projects.length,papers:d.papers.length,statuses:Object.fromEntries(['Published','Accepted','Preprint'].map(s=>[s,d.papers.filter(p=>p.status===s).length])),talks:d.talks.length},null,2)+'\n');
+await fs.writeFile(path.join(out,'build-info.json'),JSON.stringify({updated:d.updated,projects:d.projects.length,papers:d.papers.length,statuses:Object.fromEntries(['Published','Accepted','Preprint'].map(s=>[s,d.papers.filter(p=>p.status===s).length])),talks:d.talks.length,researchServiceRoles:d.service.length,mentorRecognitions:d.mentorship.recognitions.length},null,2)+'\n');
 console.log(`Built ${pages.size} pages · ${d.projects.length} projects · ${d.papers.length} papers · ${d.talks.length} talks`);

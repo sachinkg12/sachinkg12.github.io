@@ -15,7 +15,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.ids = []; self.links = []; self.images = []; self.h1 = 0
         self.anchor_depth = 0; self.nested = False; self.canonical = []; self.lang = None
-        self.paper_ids = []
+        self.paper_ids = []; self.service_ids = []
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if 'id' in a: self.ids.append(a['id'])
@@ -27,6 +27,7 @@ class Page(HTMLParser):
         if tag == 'img': self.images.append(a)
         if tag == 'link' and a.get('rel') == 'canonical': self.canonical.append(a.get('href'))
         if 'data-paper' in a: self.paper_ids.append(a['id'])
+        if 'data-service-id' in a: self.service_ids.append(a['data-service-id'])
     def handle_endtag(self, tag):
         if tag == 'a': self.anchor_depth -= 1
 
@@ -80,6 +81,19 @@ if any((OUT / p).exists() for p in ['.git','.superdesign','content','docs','CNAM
     errors.append('Nonpublic source or custom-domain configuration included in output')
 if 'heaplens-intellij-histogram.webp' not in (OUT/'index.html').read_text(): errors.append('Home does not use light IntelliJ screenshot')
 if 'Reliable AI Agents: Regression Testing and Runtime Tool Contracts' not in (OUT/'speaking/index.html').read_text(): errors.append('SCIS keynote missing')
+# Preserve each supplied service role, including repeated venues with different duties.
+service_expected = {s['id'] for s in data['service']}
+service_actual = pages[OUT / 'research-service/index.html'].service_ids
+if set(service_actual) != service_expected or len(service_actual) != len(service_expected):
+    errors.append('Research-service page omits or duplicates a supplied role')
+for route in ['index.html', 'about/index.html', 'cv/index.html']:
+    html = (OUT / route).read_text()
+    for recognition in data['mentorship']['recognitions']:
+        if recognition['displayDate'] not in html or recognition['highlight'] not in html:
+            errors.append(f'{route}: missing mentorship recognition')
+for row in data['service']:
+    if any(k in row for k in ['email','contact','chair','deadline','letterReceived','wos']):
+        errors.append('Nonpublic tracking fields copied into portfolio service data')
 if errors:
     raise SystemExit('\n'.join(errors))
 print(f'Validated {len(pages)} pages, {len(data["papers"])} distinct papers, all local links/assets, and preserved learning notes.')

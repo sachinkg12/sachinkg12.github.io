@@ -21,7 +21,7 @@ Edit **`content/portfolio.json`**. It contains the public profile, projects, pap
 
 For papers, keep `status` as `Published`, `Accepted`, or `Preprint`. One work appears once: if an accepted or published paper also has an arXiv version, put that URL in `preprint`. Preserve author order, actual venue/track, and publication status. A software artifact DOI is separate from a paper DOI.
 
-Source verification and asset provenance are documented in `docs/`. The initial bibliography was reconciled against the public author profile, publisher records, conference program, and arXiv author feed on November 21, 2026. The initial inventory has seven published papers, two accepted manuscripts, and one standalone preprint.
+Source verification and asset provenance are documented in `docs/`. The initial bibliography was reconciled against the public author profile, publisher records, conference program, and arXiv author feed on November 21, 2026. The initial inventory has seven published papers, two accepted manuscripts, and one standalone preprint. Mentorship recognition is stored separately from the 23 completed research-service roles. The complete role list is published at `/research-service/`, grouped into area-chair work, reviewing and program committees, and artifact evaluation. Dates and counts follow the supplied role records; organiser contacts and tracking fields are not published.
 
 ## Publish
 
