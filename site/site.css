@@ -24,7 +24,7 @@
 @media(max-width:420px){.mentor-awards{grid-template-columns:1fr}.mentor-award{padding:24px}.mentor-award h3{font-size:2.65rem}}
 
 /* Prominent links to the complete project, research, speaking, and service collections. */
-.section-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 20px;border:1px solid var(--forest);border-radius:999px;background:var(--forest);color:#fff;font-size:15px;font-weight:500;line-height:1.4;text-align:center;text-decoration:none;box-shadow:0 3px 0 #173f29;transition:background .2s,box-shadow .2s}
-.section-cta:hover{background:#173f29;border-color:#173f29;box-shadow:0 4px 0 #102d1d}
-.section-cta:active{box-shadow:0 1px 0 #173f29}
-.section-cta:focus-visible{outline:3px solid var(--forest);outline-offset:4px;box-shadow:0 0 0 3px var(--yellow)}
+.section-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 20px;border:1px solid var(--forest);border-radius:999px;background:var(--forest);color:#fff;font-size:15px;font-weight:500;line-height:1.4;text-align:center;text-decoration:none;box-shadow:0 0 0 3px var(--yellow),0 0 0 4px #fff,0 0 0 7px var(--forest);transition:background .2s}
+.section-cta:hover{background:#173f29;border-color:#173f29}
+.section-cta:active{background:#102d1d;border-color:#102d1d}
+.section-cta:focus-visible{outline:2px dashed var(--forest);outline-offset:11px}
