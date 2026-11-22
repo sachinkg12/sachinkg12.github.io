@@ -1,0 +1,279 @@
+{
+  "verifiedAt": "2026-11-21",
+  "scope": "Current public author profile, live arXiv author feed, public ORCID works, ACL Anthology publisher records, ACM/Crossref metadata, and public project citation metadata. One entry per distinct work; an arXiv version of a published or accepted work is an alternate link, not another paper.",
+  "statusCounts": {
+    "Published": 7,
+    "Accepted": 2,
+    "Preprint": 1
+  },
+  "papers": [
+    {
+      "id": "heaplens",
+      "short": "HeapLens",
+      "title": "HeapLens: An IDE-Integrated Tool for Heap Dump Analysis with In-Editor Source Bridging and LLM-Assisted Diagnosis",
+      "authors": "Sachin Gupta",
+      "venue": "SPLASH/ISSTA 2026 · Tool Demonstrations",
+      "venueFull": "Companion Proceedings of the 2026 ACM SIGPLAN International Conference on Systems, Programming, Languages, and Applications: Software for Humanity",
+      "pages": "80–84",
+      "year": 2026,
+      "status": "Published",
+      "type": "Tool paper",
+      "summary": "A Rust analysis engine and a VS Code interface for investigating Java heap dumps and navigating back to source.",
+      "url": "https://doi.org/10.1145/3837729.3840479",
+      "doi": "10.1145/3837729.3840479",
+      "project": "heaplens",
+      "publishedDate": "2026-10-03",
+      "code": "https://github.com/sachinkg12/heaplens",
+      "sources": [
+        "https://api.crossref.org/works/10.1145/3837729.3840479",
+        "https://conf.researchr.org/track/splash-issta-2026/splash-issta-2026-posters-and-tool-demonstrations",
+        "https://doi.org/10.1145/3837729.3840479"
+      ]
+    },
+    {
+      "id": "veritygate",
+      "short": "VERITYGATE",
+      "title": "VERITYGATE: A Four-Gate Schema-Level Faithfulness Framework and Paired Benchmark for Grounded LLM Narrations over Structured Evidence",
+      "authors": "Sachin Gupta",
+      "venue": "GroundLM 2026 · Workshop at EMNLP",
+      "venueFull": "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)",
+      "pages": "56–71",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Check evidence identifiers, entities, numbers, and claim types in model-written explanations against structured records.",
+      "url": "https://aclanthology.org/2026.groundlm-1.5/",
+      "code": "https://github.com/sachinkg12/yukti/releases/tag/veritygate-groundlm-2026-v1.0.0",
+      "project": "yukti",
+      "doi": "10.18653/2026.groundlm-1.5",
+      "arxiv": "https://arxiv.org/abs/2610.00833",
+      "sources": [
+        "https://aclanthology.org/2026.groundlm-1.5/",
+        "https://arxiv.org/abs/2610.00833"
+      ],
+      "publishedDate": "2026-10"
+    },
+    {
+      "id": "trace",
+      "short": "TRACE",
+      "title": "TRACE: Target-Aware Retrieval, Attributed Evidence, and Contract-Constrained Extraction for LitTraceQA",
+      "authors": "Sachin Gupta and Divya Godara",
+      "venue": "GroundLM 2026 · Workshop at EMNLP",
+      "venueFull": "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)",
+      "pages": "1179–1186",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Combine paper retrieval, evidence localization, table extraction, and validation to produce answers a shared-task evaluator can check.",
+      "url": "https://aclanthology.org/2026.groundlm-1.86/",
+      "doi": "10.18653/2026.groundlm-1.86",
+      "arxiv": "https://arxiv.org/abs/2609.38861",
+      "project": "trace",
+      "code": "https://github.com/sachinkg12/trace",
+      "projectUrl": "https://sachinkg12.github.io/trace/",
+      "sources": [
+        "https://aclanthology.org/2026.groundlm-1.86/",
+        "https://arxiv.org/abs/2609.38861"
+      ],
+      "publishedDate": "2026-10"
+    },
+    {
+      "id": "slide-narration",
+      "short": "Evidence-indexed slide narration",
+      "title": "Evidence-Indexed Slide Narration With Heuristic Checks and Template Fallback",
+      "authors": "Sachin Gupta",
+      "venue": "GroundLM 2026 · Workshop at EMNLP",
+      "venueFull": "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)",
+      "pages": "1116–1123",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Evaluate slide narration linked to source content, using heuristic checks and a template fallback across 30 decks and 279 slides.",
+      "url": "https://aclanthology.org/2026.groundlm-1.78/",
+      "project": "slidesherlock",
+      "doi": "10.18653/2026.groundlm-1.78",
+      "code": "https://github.com/sachinkg12/SlideSherlock",
+      "sources": [
+        "https://aclanthology.org/2026.groundlm-1.78/"
+      ],
+      "publishedDate": "2026-10"
+    },
+    {
+      "id": "financial-sms",
+      "short": "Evaluating financial SMS alerts",
+      "title": "Default Zero-Shot LLM APIs Over-Flag Indian Financial SMS: A Policy-Aligned Benchmark and Template-Level Pre-Deployment Audit",
+      "authors": "Sachin Gupta",
+      "venue": "GroundLM 2026 · Workshop at EMNLP",
+      "venueFull": "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)",
+      "pages": "1124–1136",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Study false fraud alerts on 1,393 Indian financial messages while distinguishing source labels from the policy used to block a message.",
+      "url": "https://aclanthology.org/2026.groundlm-1.79/",
+      "doi": "10.18653/2026.groundlm-1.79",
+      "sources": [
+        "https://aclanthology.org/2026.groundlm-1.79/"
+      ],
+      "publishedDate": "2026-10"
+    },
+    {
+      "id": "evicalc",
+      "short": "EVICALC",
+      "title": "Evidence First, Arithmetic Second: A System Report and Failure Analysis for DOCSEM",
+      "authors": "Divya Godara and Sachin Gupta",
+      "venue": "DocInsights 2026 · Workshop at EMNLP",
+      "venueFull": "The Proceedings of Workshop on Document Intelligence and Understanding",
+      "pages": "460–464",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Retrieve evidence from PDFs, ask a model for an arithmetic expression, and evaluate the expression in code; examine where the pipeline fails.",
+      "url": "https://aclanthology.org/2026.docinsights-1.32/",
+      "doi": "10.18653/2026.docinsights-1.32",
+      "arxiv": "https://arxiv.org/abs/2609.39013",
+      "sources": [
+        "https://aclanthology.org/2026.docinsights-1.32/",
+        "https://arxiv.org/abs/2609.39013"
+      ],
+      "publishedDate": "2026-10"
+    },
+    {
+      "id": "routeguard",
+      "short": "RouteGuard",
+      "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
+      "authors": "Sachin Gupta",
+      "venue": "IEEE ICTAI 2026",
+      "venueFull": "38th IEEE International Conference on Tools with Artificial Intelligence (ICTAI 2026)",
+      "year": 2026,
+      "status": "Published",
+      "type": "Conference paper",
+      "summary": "Evaluate when a ticket classifier should route automatically or defer to a person, using thresholds selected on calibration data and explicit error costs.",
+      "url": "https://conferences.computer.org/ictaipub26/pdfs/4880-1wRFtuxgVBHgn8UZdUtTn4/488001a271/488001a271.pdf",
+      "arxiv": "https://arxiv.org/abs/2610.31657",
+      "code": "https://github.com/sachinkg12/RouteGuard",
+      "project": "routeguard",
+      "projectUrl": "https://sachinkg12.github.io/RouteGuard/",
+      "sources": [
+        "https://github.com/sachinkg12/sachinkg12#research--9-accepted-papers",
+        "https://conferences.computer.org/ictaipub26/pdfs/4880-1wRFtuxgVBHgn8UZdUtTn4/488001a271/488001a271.pdf",
+        "https://arxiv.org/abs/2610.31657",
+        "https://ictai.computer.org/2026/wp-content/uploads/sites/7/2026/10/ICTAI-Conference-Program.pdf",
+        "https://www.scrs.in/conference/scis2026/speaker/talk/23367"
+      ],
+      "verificationNote": "The official ICTAI 2026 program lists paper 552, exact title and Gupta Sachin, as a full paper in Session 12B on November 2. The current public GitHub author profile (README updated November 8, 2026) identifies it as published and links to the official IEEE Computer Society proceedings PDF. The official SCIS 2026 keynote biography independently carries the author’s publication statement. The RouteGuard README was last updated September 10 and still says accepted, so it is older. The publisher PDF returned HTTP 401 in this audit; its final DOI, pages, and exact publication date were not independently read. Do not substitute the Zenodo software DOI for a paper DOI.",
+      "conferenceDate": "2026-11-02",
+      "conferencePaperId": "552",
+      "statusEvidence": "Official conference program plus newer public author profile and official keynote biography; publisher full text access restricted."
+    },
+    {
+      "id": "agenttrustci",
+      "short": "AgentTrustCI",
+      "title": "AgentTrustCI: Build-Time Policy, Grounding, and Trajectory Tests for Java LLM Agents",
+      "authors": "Sachin Gupta",
+      "venue": "ICCA 2026 · Accepted",
+      "venueFull": "2026 International Conference on Computer and Applications (ICCA)",
+      "year": 2026,
+      "status": "Accepted",
+      "type": "Accepted conference paper",
+      "summary": "Express policy, grounding, and tool-call sequence expectations as deterministic regression tests over recorded traces in Java and JUnit.",
+      "url": "https://arxiv.org/abs/2611.06674",
+      "arxiv": "https://arxiv.org/abs/2611.06674",
+      "code": "https://github.com/sachinkg12/agenttrustci",
+      "project": "agenttrustci",
+      "sources": [
+        "https://arxiv.org/abs/2611.06674",
+        "https://www.guptasachinn.com/work/agenttrustci",
+        "https://github.com/sachinkg12/sachinkg12"
+      ],
+      "verificationNote": "Acceptance is explicitly stated in public arXiv comments and existing author records. No publisher Version of Record or paper DOI was verified. The GitHub profile identifies Industrial Track; arXiv comments name only the conference, so the concise venue need not assert a track."
+    },
+    {
+      "id": "toolcontractgate",
+      "short": "ToolContractGate",
+      "title": "ToolContractGate: Versioned Trusted Contracts for Drift-Safe Agent Tool Invocation",
+      "authors": "Sachin Gupta",
+      "venue": "ICCA 2026 · Accepted",
+      "venueFull": "2026 International Conference on Computer and Applications (ICCA)",
+      "year": 2026,
+      "status": "Accepted",
+      "type": "Accepted conference paper",
+      "summary": "Evaluate agent tool requests against approved, versioned API contracts and return explicit decisions about schema, access, and declared behavior.",
+      "url": "https://arxiv.org/abs/2610.33108",
+      "arxiv": "https://arxiv.org/abs/2610.33108",
+      "code": "https://github.com/sachinkg12/toolcontractgate",
+      "project": "toolcontractgate",
+      "sources": [
+        "https://arxiv.org/abs/2610.33108",
+        "https://www.guptasachinn.com/work/toolcontractgate",
+        "https://github.com/sachinkg12/sachinkg12"
+      ],
+      "verificationNote": "Public arXiv comments explicitly identify an accepted manuscript at ICCA 2026. No publisher Version of Record or paper DOI was verified. A host must honor the returned decisions; the demonstration tool responses are stubs."
+    },
+    {
+      "id": "agentfaultbench",
+      "short": "AgentFaultBench",
+      "title": "AgentFaultBench: State-Verified Evaluation of Tool-Fault Recovery",
+      "authors": "Sachin Gupta",
+      "venue": "arXiv · Preprint",
+      "venueFull": "arXiv",
+      "year": 2026,
+      "status": "Preprint",
+      "type": "Preprint",
+      "summary": "Compare recovery guidance with neutral feedback after controlled tool failures, checking application state and required execution steps in an isolated GitLab environment.",
+      "url": "https://arxiv.org/abs/2611.20711",
+      "arxiv": "https://arxiv.org/abs/2611.20711",
+      "submittedDate": "2026-11-16",
+      "sources": [
+        "https://arxiv.org/abs/2611.20711",
+        "https://arxiv.org/a/gupta_s_12.atom"
+      ],
+      "verificationNote": "Current public arXiv comments say submitted to the NAACL 2027 Industry Track. Submission is not acceptance. The live author Atom feed includes this work under the same author identity; the cached HTML author page omitted it. No public code repository was verified."
+    }
+  ],
+  "projectDiscoveries": [
+    {
+      "slug": "trace",
+      "name": "TRACE",
+      "source": "https://github.com/sachinkg12/trace",
+      "docs": "https://sachinkg12.github.io/trace/",
+      "paper": "https://aclanthology.org/2026.groundlm-1.86/",
+      "summary": "Scientific question answering that preserves target paper identity through retrieval, evidence localization, table extraction, and answer validation.",
+      "status": "Open source · Published workshop paper",
+      "limit": "The public release provides the generic full-generation architecture. It does not distribute the exact composed official-test predictions, and hosted inference can change.",
+      "authors": [
+        "Sachin Gupta",
+        "Divya Godara"
+      ]
+    },
+    {
+      "slug": "routeguard",
+      "name": "RouteGuard",
+      "source": "https://github.com/sachinkg12/RouteGuard",
+      "docs": "https://sachinkg12.github.io/RouteGuard/",
+      "paper": "https://conferences.computer.org/ictaipub26/pdfs/4880-1wRFtuxgVBHgn8UZdUtTn4/488001a271/488001a271.pdf",
+      "arxiv": "https://arxiv.org/abs/2610.31657",
+      "summary": "A framework for evaluating classification, deferral to human triage, and asymmetric error costs in IT ticket routing.",
+      "status": "Open source · Conference paper",
+      "limit": "An offline evaluation framework, not a production routing service. The reported results depend on the dataset, prompts, model endpoints, and illustrative costs. Synthetic smoke tests do not reproduce the paper’s empirical claims.",
+      "artifact": "https://doi.org/10.5281/zenodo.22609128"
+    }
+  ],
+  "excludedCandidates": [
+    {
+      "title": "The Selection Wall in Closed-Book Knowledge Base Construction: Elicit, Screen, and Freeze",
+      "authors": "Sachin Gupta and Divya Godara",
+      "source": "https://github.com/sachinkg12/akbc#citation",
+      "url": "https://openreview.net/forum?id=qPiIuPUJlj",
+      "reason": "The public repository cites this manuscript, but the linked OpenReview record was not publicly retrievable in this audit (HTTP 403), and no public full manuscript or acceptance record was verified. Do not classify it as accepted or published. Ask the author before treating an unavailable submission as a displayed preprint."
+    },
+    {
+      "title": "Zenodo software and artifact records",
+      "reason": "Software records for HeapLens, SlideSherlock, Yukti, and RouteGuard are project/archive citations, not additional scholarly papers."
+    },
+    {
+      "title": "Other papers by authors named Sachin Gupta",
+      "reason": "Broad search returns biomedical, healthcare, carbon-emissions, and other unrelated author identities. These were excluded because the verified author profile, ORCID, and known collaborator history did not attribute them to this user."
+    }
+  ]
+}

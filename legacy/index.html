@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Learning Docs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css" />
+    <link rel="icon" href="favicon.ico" />
+  </head>
+  <body>
+    <div id="app">Loading...</div>
+
+    <script>
+  window.$docsify = {
+    name: 'Learning Docs',
+    loadSidebar: true,
+    subMaxLevel: 2,
+    alias: {
+      '/ai/_sidebar.md': '/_sidebar.md',
+      '/.*/_sidebar.md': '/_sidebar.md'
+    },
+    mermaidConfig: {
+      startOnLoad: true,
+      theme: 'default'
+    },
+    markdown: {
+      renderer: {
+        code: function (code, lang) {
+          if (lang === 'mermaid') {
+            return '<div class="mermaid">' + code + '</div>';
+          }
+          return this.origin.code.apply(this, arguments);
+        }
+      }
+    }
+  };
+</script>
+
+<!-- Load mermaid and plugins AFTER Docsify config -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify-mermaid@1.0.0/dist/docsify-mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+
+
+
+  </body>
+</html>

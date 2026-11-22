@@ -1,0 +1,636 @@
+{
+  "updated": "2026-11-21",
+  "person": {
+    "name": "Sachin Gupta",
+    "role": "Backend engineer & independent researcher",
+    "position": "Member of Technical Staff 2",
+    "employer": "eBay",
+    "location": "San Jose, California",
+    "bio": "I build backend systems and practical tools for investigating AI behavior. My work spans billing infrastructure, memory analysis, agent tool controls, and explanations grounded in evidence.",
+    "shortBio": "Sachin Gupta is a backend engineer and independent researcher in San Jose, California. He is a Member of Technical Staff 2 at eBay, working on billing infrastructure, APIs, and AI enablement. His independent work includes HeapLens, TRACE, RouteGuard, AgentTrustCI, and ToolContractGate, with papers in ACM, IEEE, and EMNLP workshop proceedings. He delivers keynotes and technical talks about reliable AI agents, evidence-grounded language systems, and developer tools. Views are his own.",
+    "links": {
+      "github": "https://github.com/sachinkg12",
+      "linkedin": "https://www.linkedin.com/in/guptasachin1/",
+      "writing": "https://www.guptasachinn.com/",
+      "orcid": "https://orcid.org/0009-0009-7422-4967",
+      "scholar": "https://scholar.google.com/citations?user=sVZi4aoAAAAJ&hl=en",
+      "sessionize": "https://sessionize.com/sachin-gupta/",
+      "arxiv": "https://arxiv.org/a/gupta_s_12.html",
+      "mentoring": "https://adplist.org/mentors/sachin-gupta-mpepaxnr"
+    }
+  },
+  "projects": [
+    {
+      "slug": "heaplens",
+      "name": "HeapLens",
+      "category": "Developer tools",
+      "eyebrow": "Memory analysis",
+      "summary": "Follow the references. Find what keeps memory alive.",
+      "description": "Investigate Java and Android heap dumps with a native Rust engine, interactive views, a query language, and source navigation. Available in VS Code, IntelliJ IDEA, and the terminal.",
+      "stack": [
+        "Rust",
+        "TypeScript",
+        "Java"
+      ],
+      "source": "https://github.com/sachinkg12/heaplens",
+      "docs": "https://sachinkg12.github.io/heaplens/",
+      "install": "https://marketplace.visualstudio.com/items?itemName=guptasachinn.heaplens",
+      "paper": "https://doi.org/10.1145/3837729.3840479",
+      "status": "Open source · Published tool paper",
+      "problem": "A large heap dump can show which objects occupy memory without making it easy to investigate why those objects remain reachable or to find the relevant source code.",
+      "approach": "A shared Rust engine parses HPROF files and builds the reference graph. The interfaces expose class histograms, dominator trees, reference paths, snapshot comparison, and HeapQL queries. Source navigation connects investigation back to Java code.",
+      "result": "Released as installable developer tools, with a tool paper in the SPLASH/ISSTA 2026 companion proceedings. The paper reports timing and peak memory on dumps up to 14.8 GB.",
+      "limit": "Heap analysis runs locally. Optional AI features send selected context to the configured provider unless a local model is used. Large retained sets are investigation leads, not proof of a memory leak.",
+      "sources": [
+        "https://github.com/sachinkg12/heaplens",
+        "https://doi.org/10.1145/3837729.3840479"
+      ]
+    },
+    {
+      "slug": "trace",
+      "name": "TRACE",
+      "category": "Evidence-grounded AI",
+      "eyebrow": "Scientific question answering",
+      "summary": "Connect the answer to the paper and its evidence.",
+      "description": "Retrieve scientific papers, locate supporting text, tables, and figures, and validate typed answers against the LitTraceQA task schema.",
+      "stack": [
+        "Python",
+        "Gemini",
+        "Sentence Transformers"
+      ],
+      "source": "https://github.com/sachinkg12/trace",
+      "docs": "https://sachinkg12.github.io/trace/",
+      "paper": "https://aclanthology.org/2026.groundlm-1.86/",
+      "status": "Open source · Published workshop paper",
+      "authors": "Sachin Gupta and Divya Godara",
+      "problem": "Finding the relevant paper does not guarantee that an answer identifies the right source object or matches the required answer structure.",
+      "approach": "Preserve the question’s targets through retrieval, select papers that cover those targets, locate attributed source objects, produce a typed answer, and validate the paper–evidence relationship and output schema.",
+      "result": "A published GroundLM 2026 workshop system paper and public full-generation architecture, configuration, data-fetch utilities, tests, and reproduction guide.",
+      "limit": "The public release provides the full-generation architecture, not the exact composed official prediction file. Hosted model changes can alter generated results.",
+      "sources": [
+        "https://github.com/sachinkg12/trace",
+        "https://aclanthology.org/2026.groundlm-1.86/"
+      ],
+      "visualSuggestion": {
+        "kind": "concept",
+        "label": "Scientific question → target papers → attributed evidence → typed answer",
+        "note": "Use a labeled concept diagram in the same split-card visual style as other projects. Public architecture SVG is available in assets/trace-architecture.svg; it is not an application screenshot."
+      }
+    },
+    {
+      "slug": "routeguard",
+      "name": "RouteGuard",
+      "category": "AI evaluation",
+      "eyebrow": "Cost-aware classification",
+      "summary": "Evaluate when a classifier should defer.",
+      "description": "Compare automatic text classification with human triage under an explicit cost model, using confidence thresholds, calibration checks, and selective-prediction analysis.",
+      "stack": [
+        "Python",
+        "scikit-learn",
+        "Transformers"
+      ],
+      "source": "https://github.com/sachinkg12/RouteGuard",
+      "docs": "https://sachinkg12.github.io/RouteGuard/",
+      "artifact": "https://doi.org/10.5281/zenodo.22609128",
+      "status": "Open source · Published conference paper",
+      "paperStatus": "Published",
+      "paperTitle": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
+      "authors": "Sachin Gupta",
+      "problem": "A confidence score can be well calibrated while still failing to distinguish correct predictions from incorrect ones. Wrong automatic routing may also cost more than a deferral.",
+      "approach": "Keep prediction, confidence estimation, abstention policy, and cost evaluation separate. Select thresholds on calibration data, then evaluate the fixed policy once on held-out test data.",
+      "result": "A public offline evaluation framework and versioned artifact, accompanying a full paper at IEEE ICTAI 2026. A manuscript is available on arXiv; the software artifact is archived separately on Zenodo.",
+      "limit": "This is an evaluation framework, not a production routing service. Its illustrative costs are not an estimate of an organization’s real costs. The synthetic quickstart checks execution and does not reproduce the paper’s empirical results.",
+      "sources": [
+        "https://github.com/sachinkg12/RouteGuard",
+        "https://sachinkg12.github.io/RouteGuard/",
+        "https://doi.org/10.5281/zenodo.22609128"
+      ],
+      "visualSuggestion": {
+        "kind": "concept",
+        "label": "Classifier → confidence → auto-route or human triage → expected cost",
+        "note": "No public app dashboard exists; do not fabricate one. Use a labeled concept diagram. Do not classify the Zenodo artifact DOI as the paper DOI."
+      },
+      "paper": "https://arxiv.org/abs/2610.31657"
+    },
+    {
+      "slug": "slidesherlock",
+      "name": "SlideSherlock",
+      "category": "Evidence-grounded AI",
+      "eyebrow": "Slide narration",
+      "summary": "Keep the narration connected to the slides.",
+      "description": "Convert presentation decks into narrated video using indexed slide evidence, heuristic checks, and template fallback.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "React"
+      ],
+      "source": "https://github.com/sachinkg12/SlideSherlock",
+      "paper": "https://aclanthology.org/2026.groundlm-1.78/",
+      "status": "Open source · Published workshop paper",
+      "problem": "A fluent narration can introduce facts that were never present in the source slides. Reading bullets verbatim avoids some risks but often makes a poor explanation.",
+      "approach": "Extract slide content into an evidence index, generate narration linked to that content, apply heuristic checks, and use a template fallback when needed. Assemble the narration and rendered slides into video.",
+      "result": "Released as a Python package and Docker-based application. The GroundLM 2026 workshop paper evaluates narration over 30 decks and 279 slides.",
+      "limit": "The checks are proxies for selected errors. They do not establish that every narrated statement is correct or eliminate hallucination.",
+      "sources": [
+        "https://github.com/sachinkg12/SlideSherlock",
+        "https://aclanthology.org/2026.groundlm-1.78/"
+      ]
+    },
+    {
+      "slug": "yukti",
+      "name": "Yukti",
+      "category": "Evidence-grounded AI",
+      "eyebrow": "Optimization & explanation",
+      "summary": "Solve the decision. Then explain the result.",
+      "description": "A credit-card portfolio research application that separates mathematical optimization from explanations tied to solver output.",
+      "stack": [
+        "Java 21",
+        "OR-Tools",
+        "React"
+      ],
+      "source": "https://github.com/sachinkg12/yukti",
+      "paper": "https://aclanthology.org/2026.groundlm-1.5/",
+      "status": "Open source · Research application",
+      "problem": "An explanation of a recommendation can sound convincing while disagreeing with the constraints, arithmetic, or selected result of the underlying optimizer.",
+      "approach": "Use mixed-integer programming for the portfolio decision, record the solver evidence, then check the identifiers, entities, numbers, and claim types used in the explanation.",
+      "result": "A modular application and comparison framework for optimization methods. The related VERITYGATE paper studies schema-level checks for narrations over structured evidence.",
+      "limit": "Results depend on the catalog, valuations, constraints, and input assumptions. The explanation checks cover a fixed schema rather than all possible claims.",
+      "sources": [
+        "https://github.com/sachinkg12/yukti",
+        "https://aclanthology.org/2026.groundlm-1.5/"
+      ]
+    },
+    {
+      "slug": "agenttrustci",
+      "name": "AgentTrustCI",
+      "category": "AI agent controls",
+      "eyebrow": "Before release",
+      "summary": "Put agent behavior under regression tests.",
+      "description": "JUnit tests for allowed tools, evidence-supported answers, and the order of tool calls. Run the checks beside ordinary application tests.",
+      "stack": [
+        "Java 21",
+        "JUnit 5",
+        "LangChain4j"
+      ],
+      "source": "https://github.com/sachinkg12/agenttrustci",
+      "status": "Open source · Research prototype",
+      "problem": "An agent can produce a correct final answer while calling a forbidden tool, inventing a value, or taking actions in the wrong order. Output-only tests miss those differences.",
+      "approach": "Encode expectations in test cases, replay tool-call traces, and check policy, answer support, and the permitted sequence of actions with deterministic validators.",
+      "result": "A self-contained Java framework and authored regression cases used in talks on agent governance. The associated manuscript is recorded as accepted at ICCA 2026.",
+      "limit": "The authored traces test validator conformance. They do not establish a production safety rate or guarantee the behavior of a live model.",
+      "sources": [
+        "https://github.com/sachinkg12/agenttrustci",
+        "https://www.guptasachinn.com/activities/wearedevelopers"
+      ],
+      "paper": "https://arxiv.org/abs/2611.06674"
+    },
+    {
+      "slug": "toolcontractgate",
+      "name": "ToolContractGate",
+      "category": "AI agent controls",
+      "eyebrow": "Before execution",
+      "summary": "Check the contract before a tool runs.",
+      "description": "A Java gateway checks agent tool calls against approved, versioned API contracts and returns explicit reasons for blocked calls.",
+      "stack": [
+        "Java 21",
+        "Spring Boot",
+        "OpenAPI"
+      ],
+      "source": "https://github.com/sachinkg12/toolcontractgate",
+      "status": "Open source · Research prototype",
+      "problem": "Authentication identifies a caller, but it does not establish that a requested tool, payload, scope, or API version matches the action that was approved.",
+      "approach": "Place a validation gateway between agent intent and tool execution. Resolve a versioned contract, validate the requested tool and payload, check caller scope and limits, and return an allow, review, or block decision with a reason.",
+      "result": "An executable gateway, agent runner, and local deployment configuration. The associated manuscript is recorded as accepted at ICCA 2026, with recorded talks demonstrating the design.",
+      "limit": "The demonstration uses stub tool responses. Connecting the checks to a real tool boundary remains an integration task. Passing a contract check does not establish the overall correctness or safety of a workflow.",
+      "sources": [
+        "https://github.com/sachinkg12/toolcontractgate",
+        "https://www.guptasachinn.com/activities/platformcon-2026"
+      ],
+      "paper": "https://arxiv.org/abs/2610.33108"
+    }
+  ],
+  "papers": [
+    {
+      "id": "routeguard",
+      "short": "RouteGuard",
+      "title": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
+      "authors": "Sachin Gupta",
+      "venue": "IEEE ICTAI 2026",
+      "venueFull": "38th IEEE International Conference on Tools with Artificial Intelligence (ICTAI 2026)",
+      "year": 2026,
+      "status": "Published",
+      "type": "Conference paper",
+      "summary": "Evaluate when a ticket classifier should route automatically or defer to a person, using thresholds selected on calibration data and explicit error costs.",
+      "url": "https://arxiv.org/abs/2610.31657",
+      "arxiv": "https://arxiv.org/abs/2610.31657",
+      "code": "https://github.com/sachinkg12/RouteGuard",
+      "project": "routeguard",
+      "projectUrl": "https://sachinkg12.github.io/RouteGuard/",
+      "sources": [
+        "https://github.com/sachinkg12/sachinkg12#research--9-accepted-papers",
+        "https://conferences.computer.org/ictaipub26/pdfs/4880-1wRFtuxgVBHgn8UZdUtTn4/488001a271/488001a271.pdf",
+        "https://arxiv.org/abs/2610.31657",
+        "https://ictai.computer.org/2026/wp-content/uploads/sites/7/2026/10/ICTAI-Conference-Program.pdf",
+        "https://www.scrs.in/conference/scis2026/speaker/talk/23367"
+      ],
+      "verificationNote": "The official ICTAI 2026 program lists paper 552, exact title and Gupta Sachin, as a full paper in Session 12B on November 2. The current public GitHub author profile (README updated November 8, 2026) identifies it as published and links to the official IEEE Computer Society proceedings PDF. The official SCIS 2026 keynote biography independently carries the author’s publication statement. The RouteGuard README was last updated September 10 and still says accepted, so it is older. The publisher PDF returned HTTP 401 in this audit; its final DOI, pages, and exact publication date were not independently read. Do not substitute the Zenodo software DOI for a paper DOI.",
+      "conferenceDate": "2026-11-02",
+      "conferencePaperId": "552",
+      "statusEvidence": "Official conference program plus newer public author profile and official keynote biography; publisher full text access restricted.",
+      "preprint": "https://arxiv.org/abs/2610.31657",
+      "publisher": "https://conferences.computer.org/ictaipub26/pdfs/4880-1wRFtuxgVBHgn8UZdUtTn4/488001a271/488001a271.pdf"
+    },
+    {
+      "id": "heaplens",
+      "short": "HeapLens",
+      "title": "HeapLens: An IDE-Integrated Tool for Heap Dump Analysis with In-Editor Source Bridging and LLM-Assisted Diagnosis",
+      "authors": "Sachin Gupta",
+      "venue": "SPLASH/ISSTA 2026 · Tool Demonstrations",
+      "venueFull": "Companion Proceedings of the 2026 ACM SIGPLAN International Conference on Systems, Programming, Languages, and Applications: Software for Humanity",
+      "pages": "80–84",
+      "year": 2026,
+      "status": "Published",
+      "type": "Tool paper",
+      "summary": "A Rust analysis engine and a VS Code interface for investigating Java heap dumps and navigating back to source.",
+      "url": "https://doi.org/10.1145/3837729.3840479",
+      "doi": "10.1145/3837729.3840479",
+      "project": "heaplens",
+      "publishedDate": "2026-10-03",
+      "code": "https://github.com/sachinkg12/heaplens",
+      "sources": [
+        "https://api.crossref.org/works/10.1145/3837729.3840479",
+        "https://conf.researchr.org/track/splash-issta-2026/splash-issta-2026-posters-and-tool-demonstrations",
+        "https://doi.org/10.1145/3837729.3840479"
+      ]
+    },
+    {
+      "id": "veritygate",
+      "short": "VERITYGATE",
+      "title": "VERITYGATE: A Four-Gate Schema-Level Faithfulness Framework and Paired Benchmark for Grounded LLM Narrations over Structured Evidence",
+      "authors": "Sachin Gupta",
+      "venue": "GroundLM 2026 · Workshop at EMNLP",
+      "venueFull": "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)",
+      "pages": "56–71",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Check evidence identifiers, entities, numbers, and claim types in model-written explanations against structured records.",
+      "url": "https://aclanthology.org/2026.groundlm-1.5/",
+      "code": "https://github.com/sachinkg12/yukti/releases/tag/veritygate-groundlm-2026-v1.0.0",
+      "project": "yukti",
+      "doi": "10.18653/2026.groundlm-1.5",
+      "arxiv": "https://arxiv.org/abs/2610.00833",
+      "sources": [
+        "https://aclanthology.org/2026.groundlm-1.5/",
+        "https://arxiv.org/abs/2610.00833"
+      ],
+      "publishedDate": "2026-10",
+      "preprint": "https://arxiv.org/abs/2610.00833"
+    },
+    {
+      "id": "trace",
+      "short": "TRACE",
+      "title": "TRACE: Target-Aware Retrieval, Attributed Evidence, and Contract-Constrained Extraction for LitTraceQA",
+      "authors": "Sachin Gupta and Divya Godara",
+      "venue": "GroundLM 2026 · Workshop at EMNLP",
+      "venueFull": "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)",
+      "pages": "1179–1186",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Combine paper retrieval, evidence localization, table extraction, and validation to produce answers a shared-task evaluator can check.",
+      "url": "https://aclanthology.org/2026.groundlm-1.86/",
+      "doi": "10.18653/2026.groundlm-1.86",
+      "arxiv": "https://arxiv.org/abs/2609.38861",
+      "project": "trace",
+      "code": "https://github.com/sachinkg12/trace",
+      "projectUrl": "https://sachinkg12.github.io/trace/",
+      "sources": [
+        "https://aclanthology.org/2026.groundlm-1.86/",
+        "https://arxiv.org/abs/2609.38861"
+      ],
+      "publishedDate": "2026-10",
+      "preprint": "https://arxiv.org/abs/2609.38861"
+    },
+    {
+      "id": "slide-narration",
+      "short": "Evidence-indexed slide narration",
+      "title": "Evidence-Indexed Slide Narration With Heuristic Checks and Template Fallback",
+      "authors": "Sachin Gupta",
+      "venue": "GroundLM 2026 · Workshop at EMNLP",
+      "venueFull": "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)",
+      "pages": "1116–1123",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Evaluate slide narration linked to source content, using heuristic checks and a template fallback across 30 decks and 279 slides.",
+      "url": "https://aclanthology.org/2026.groundlm-1.78/",
+      "project": "slidesherlock",
+      "doi": "10.18653/2026.groundlm-1.78",
+      "code": "https://github.com/sachinkg12/SlideSherlock",
+      "sources": [
+        "https://aclanthology.org/2026.groundlm-1.78/"
+      ],
+      "publishedDate": "2026-10"
+    },
+    {
+      "id": "financial-sms",
+      "short": "Evaluating financial SMS alerts",
+      "title": "Default Zero-Shot LLM APIs Over-Flag Indian Financial SMS: A Policy-Aligned Benchmark and Template-Level Pre-Deployment Audit",
+      "authors": "Sachin Gupta",
+      "venue": "GroundLM 2026 · Workshop at EMNLP",
+      "venueFull": "Proceedings of the 1st Workshop on Grounding Language Models: Learning Faithfully and Efficiently (GroundLM 2026)",
+      "pages": "1124–1136",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Study false fraud alerts on 1,393 Indian financial messages while distinguishing source labels from the policy used to block a message.",
+      "url": "https://aclanthology.org/2026.groundlm-1.79/",
+      "doi": "10.18653/2026.groundlm-1.79",
+      "sources": [
+        "https://aclanthology.org/2026.groundlm-1.79/"
+      ],
+      "publishedDate": "2026-10"
+    },
+    {
+      "id": "evicalc",
+      "short": "EVICALC",
+      "title": "Evidence First, Arithmetic Second: A System Report and Failure Analysis for DOCSEM",
+      "authors": "Divya Godara and Sachin Gupta",
+      "venue": "DocInsights 2026 · Workshop at EMNLP",
+      "venueFull": "The Proceedings of Workshop on Document Intelligence and Understanding",
+      "pages": "460–464",
+      "year": 2026,
+      "status": "Published",
+      "type": "Workshop paper",
+      "summary": "Retrieve evidence from PDFs, ask a model for an arithmetic expression, and evaluate the expression in code; examine where the pipeline fails.",
+      "url": "https://aclanthology.org/2026.docinsights-1.32/",
+      "doi": "10.18653/2026.docinsights-1.32",
+      "arxiv": "https://arxiv.org/abs/2609.39013",
+      "sources": [
+        "https://aclanthology.org/2026.docinsights-1.32/",
+        "https://arxiv.org/abs/2609.39013"
+      ],
+      "publishedDate": "2026-10",
+      "preprint": "https://arxiv.org/abs/2609.39013"
+    },
+    {
+      "id": "agenttrustci",
+      "short": "AgentTrustCI",
+      "title": "AgentTrustCI: Build-Time Policy, Grounding, and Trajectory Tests for Java LLM Agents",
+      "authors": "Sachin Gupta",
+      "venue": "ICCA 2026",
+      "venueFull": "2026 International Conference on Computer and Applications (ICCA)",
+      "year": 2026,
+      "status": "Accepted",
+      "type": "Accepted conference paper",
+      "summary": "Express policy, grounding, and tool-call sequence expectations as deterministic regression tests over recorded traces in Java and JUnit.",
+      "url": "https://arxiv.org/abs/2611.06674",
+      "arxiv": "https://arxiv.org/abs/2611.06674",
+      "code": "https://github.com/sachinkg12/agenttrustci",
+      "project": "agenttrustci",
+      "sources": [
+        "https://arxiv.org/abs/2611.06674",
+        "https://www.guptasachinn.com/work/agenttrustci",
+        "https://github.com/sachinkg12/sachinkg12"
+      ],
+      "verificationNote": "Acceptance is explicitly stated in public arXiv comments and existing author records. No publisher Version of Record or paper DOI was verified. The GitHub profile identifies Industrial Track; arXiv comments name only the conference, so the concise venue need not assert a track.",
+      "preprint": "https://arxiv.org/abs/2611.06674"
+    },
+    {
+      "id": "toolcontractgate",
+      "short": "ToolContractGate",
+      "title": "ToolContractGate: Versioned Trusted Contracts for Drift-Safe Agent Tool Invocation",
+      "authors": "Sachin Gupta",
+      "venue": "ICCA 2026",
+      "venueFull": "2026 International Conference on Computer and Applications (ICCA)",
+      "year": 2026,
+      "status": "Accepted",
+      "type": "Accepted conference paper",
+      "summary": "Evaluate agent tool requests against approved, versioned API contracts and return explicit decisions about schema, access, and declared behavior.",
+      "url": "https://arxiv.org/abs/2610.33108",
+      "arxiv": "https://arxiv.org/abs/2610.33108",
+      "code": "https://github.com/sachinkg12/toolcontractgate",
+      "project": "toolcontractgate",
+      "sources": [
+        "https://arxiv.org/abs/2610.33108",
+        "https://www.guptasachinn.com/work/toolcontractgate",
+        "https://github.com/sachinkg12/sachinkg12"
+      ],
+      "verificationNote": "Public arXiv comments explicitly identify an accepted manuscript at ICCA 2026. No publisher Version of Record or paper DOI was verified. A host must honor the returned decisions; the demonstration tool responses are stubs.",
+      "preprint": "https://arxiv.org/abs/2610.33108"
+    },
+    {
+      "id": "agentfaultbench",
+      "short": "AgentFaultBench",
+      "title": "AgentFaultBench: State-Verified Evaluation of Tool-Fault Recovery",
+      "authors": "Sachin Gupta",
+      "venue": "arXiv",
+      "venueFull": "arXiv",
+      "year": 2026,
+      "status": "Preprint",
+      "type": "Preprint",
+      "summary": "Compare recovery guidance with neutral feedback after controlled tool failures, checking application state and required execution steps in an isolated GitLab environment.",
+      "url": "https://arxiv.org/abs/2611.20711",
+      "arxiv": "https://arxiv.org/abs/2611.20711",
+      "submittedDate": "2026-11-16",
+      "sources": [
+        "https://arxiv.org/abs/2611.20711",
+        "https://arxiv.org/a/gupta_s_12.atom"
+      ],
+      "verificationNote": "Current public arXiv comments say submitted to the NAACL 2027 Industry Track. Submission is not acceptance. The live author Atom feed includes this work under the same author identity; the cached HTML author page omitted it. No public code repository was verified.",
+      "preprint": "https://arxiv.org/abs/2611.20711"
+    }
+  ],
+  "talks": [
+    {
+      "id": "scis-keynote",
+      "kind": "keynote",
+      "event": "SCIS 2026",
+      "title": "Reliable AI Agents: Regression Testing and Runtime Tool Contracts",
+      "date": "2026-11-21",
+      "dateLabel": "Conference: 21–22 November 2026",
+      "topic": "Agent reliability",
+      "description": "Connect regression tests, versioned tool contracts, and outcome verification: what to test before deployment, what to check before an action, and what evidence supports completion.",
+      "url": "https://www.scrs.in/conference/scis2026/speaker/talk/23367",
+      "status": "Delivered",
+      "statusSource": "User confirmation; conference record identifies keynote and title."
+    },
+    {
+      "id": "reviewdebt",
+      "event": "AI Engineer World’s Fair",
+      "title": "ReviewDebt: a practical framework for scoring every pull request",
+      "date": "2026-06-29",
+      "topic": "Code review",
+      "description": "A framework for inspecting the review burden of agent-assisted pull requests, using deterministic checks.",
+      "video": "https://www.youtube.com/watch?v=TJPInBjhE4Q",
+      "url": "https://ai.engineer/talks/TJPInBjhE4Q-reviewdebt-practical-framework-scoring-every-pull",
+      "writeup": "https://www.guptasachinn.com/activities/ai-engineer-2026",
+      "slides": "https://www.guptasachinn.com/talks/ai-engineer-2026/deck.pdf"
+    },
+    {
+      "id": "feature-flags",
+      "event": "AI Engineer World’s Fair",
+      "title": "Agents Need Feature Flags",
+      "date": "2026-06-29",
+      "topic": "Agent controls",
+      "description": "Apply staged rollout, targeting, and kill switches to changes in agent behavior.",
+      "video": "https://www.youtube.com/watch?v=zU4EagB311U",
+      "writeup": "https://www.guptasachinn.com/activities/ai-engineer-feature-flags",
+      "slides": "https://www.guptasachinn.com/talks/ai-engineer-feature-flags/deck.pdf"
+    },
+    {
+      "id": "platformcon",
+      "event": "PlatformCon",
+      "title": "Tool Contracts for AI Agents",
+      "date": "2026-06-23",
+      "topic": "Agent controls",
+      "description": "A versioned contract and gateway pattern for checking tool calls before execution.",
+      "video": "https://www.youtube.com/watch?v=kMnz8bRUMZY",
+      "writeup": "https://www.guptasachinn.com/activities/platformcon-2026",
+      "slides": "https://www.guptasachinn.com/talks/platformcon-2026/deck.pdf"
+    },
+    {
+      "id": "wearedevelopers",
+      "event": "WeAreDevelopers",
+      "title": "Test before release. Enforce at runtime.",
+      "date": "2026-09-23",
+      "topic": "Agent controls",
+      "description": "Connect regression tests for agent behavior to runtime checks for tool access.",
+      "video": "https://www.youtube.com/live/NprWZp3fHb4",
+      "writeup": "https://www.guptasachinn.com/activities/wearedevelopers"
+    },
+    {
+      "id": "conf42",
+      "event": "Conf42 Prompt Engineering",
+      "title": "Prompt Drift Kills: How to Make Prompts Stable",
+      "date": "2026-10-29",
+      "topic": "Evaluation",
+      "description": "Use structured outputs, explicit invariants, and automated tests to evaluate prompt changes.",
+      "video": "https://www.youtube.com/watch?v=c-ms45Ab_vs",
+      "url": "https://www.conf42.com/Prompt_Engineering_2026_Sachin_Gupta_drift_prompts_stable",
+      "writeup": "https://www.guptasachinn.com/activities/conf42-prompt-2026"
+    },
+    {
+      "id": "developerweek",
+      "event": "DeveloperWeek New York",
+      "title": "From OpenAPI to MCP, in 90 seconds",
+      "date": "2026-06-09",
+      "topic": "Developer tools",
+      "description": "A practical path from an existing API description to tools exposed through the Model Context Protocol.",
+      "url": "https://www.developerweek.com/newyork/sessions/",
+      "writeup": "https://www.guptasachinn.com/activities/developerweek-2026"
+    },
+    {
+      "id": "api-world",
+      "event": "API:World",
+      "title": "Trustworthy AI Agents: Test in CI, Enforce at Runtime",
+      "date": "2026-09-02",
+      "topic": "Agent controls",
+      "description": "Policy tests, answer-support checks, action-order tests, and versioned contracts for agent tools.",
+      "url": "https://apiworld.co/speakers/",
+      "writeup": "https://www.guptasachinn.com/activities/api-world-2026"
+    },
+    {
+      "id": "cloudx",
+      "event": "CloudX",
+      "title": "Securing the Agentic Tool Layer: A Runtime Defense Framework for MCP Agent Deployments",
+      "date": "2026-09-03",
+      "topic": "Agent controls",
+      "description": "A talk and demonstration about attacks that reach agents through their tools, drawing on ShieldMCP and the SAFE-MCP technique catalogue.",
+      "url": "https://cloudxconf.com/speakers/",
+      "writeup": "https://www.guptasachinn.com/activities/cloudx-2026"
+    },
+    {
+      "id": "sf-tech-week",
+      "event": "SF Tech Week",
+      "title": "Trust Issues: When Agents Act for You",
+      "date": "2026-10-07",
+      "topic": "Panel discussion",
+      "description": "A panel on identity, access, and authorization when AI agents act on behalf of people.",
+      "url": "https://www.tech-week.com/calendar/sf/events/trust-issues-when-agents-act-for-you-dbbb14b6-e17a-40de-8626-b2c33fa8d60d",
+      "writeup": "https://www.guptasachinn.com/activities/sf-tech-week-2026"
+    }
+  ],
+  "career": [
+    {
+      "period": "2021–present",
+      "role": "Member of Technical Staff 2",
+      "org": "eBay",
+      "description": "Billing infrastructure, seller-and-balance migration, public API reliability, and AI enablement across data contracts and reconciliation."
+    },
+    {
+      "period": "2015–2021",
+      "role": "Senior Java Developer",
+      "org": "Tata Consultancy Services",
+      "description": "Specialty-pharmacy systems for Walgreens, including prescription tracking, near real-time integration, reporting, and manufacturer-contract compliance."
+    },
+    {
+      "period": "2012–2015",
+      "role": "Java Developer",
+      "org": "Tata Consultancy Services",
+      "description": "Walgreens merchandising applications for store and planogram setup and competitor pricing."
+    },
+    {
+      "period": "2011–2012",
+      "role": "Java Developer",
+      "org": "Tata Consultancy Services",
+      "description": "Electronic shareholder voting for NSDL, including secure input handling and functional and database testing."
+    }
+  ],
+  "service": [
+    {
+      "title": "GroundLM 2026",
+      "role": "Area chair",
+      "url": "https://www.guptasachinn.com/activities/groundlm-2026-area-chair"
+    },
+    {
+      "title": "ASE 2026",
+      "role": "Artifact evaluator",
+      "url": "https://www.guptasachinn.com/activities/ase-ae"
+    },
+    {
+      "title": "CAV 2026",
+      "role": "Artifact evaluator",
+      "url": "https://www.guptasachinn.com/activities/cav-ae"
+    },
+    {
+      "title": "IEEE",
+      "role": "Senior Member",
+      "url": "https://www.guptasachinn.com/activities/ieee-senior-member"
+    }
+  ],
+  "writing": [
+    {
+      "title": "Citations Are Not Evidence",
+      "description": "Follow a citation, inspect the passage, and check whether it supports the claim.",
+      "url": "https://www.guptasachinn.com/writing/rag-attribution",
+      "tag": "Retrieval & evidence"
+    },
+    {
+      "title": "The Trust Gap: What Confidential Computing Doesn’t Cover",
+      "description": "A poster on the application-layer controls needed around agent tool access.",
+      "url": "https://www.guptasachinn.com/activities/confidential-computing-summit-2026",
+      "tag": "Poster · Confidential Computing Summit"
+    },
+    {
+      "title": "Prompt Drift Kills: How to Make Prompts Stable",
+      "description": "A talk and writeup on checking prompt behavior as prompts and models change.",
+      "url": "https://www.guptasachinn.com/activities/conf42-prompt-2026",
+      "tag": "Evaluation"
+    }
+  ],
+  "posters": [
+    {
+      "id": "ccs-poster",
+      "event": "Confidential Computing Summit",
+      "title": "The Trust Gap: What Confidential Computing Doesn’t Cover",
+      "date": "2026-06-23",
+      "dateLabel": "23–24 June 2026",
+      "topic": "Poster presentation",
+      "description": "A poster on the application-layer tests and controls needed around agent tool access.",
+      "url": "https://events.linuxfoundation.org/confidential-computing-summit/features/poster-sessions/",
+      "writeup": "https://www.guptasachinn.com/activities/confidential-computing-summit-2026"
+    }
+  ]
+}

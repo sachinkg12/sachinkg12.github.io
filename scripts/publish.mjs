@@ -1,0 +1,30 @@
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const run=(command,args,cwd=root,quiet=false)=>execFileSync(command,args,{cwd,encoding:'utf8',stdio:quiet?['ignore','pipe','pipe']:'inherit'});
+run(process.execPath,['scripts/build.mjs']);
+run('python3',['scripts/validate.py']);
+const remote=run('git',['remote','get-url','origin'],root,true).trim();
+const git=(args,cwd=root,quiet=false)=>run('git',['-c','credential.helper=!gh auth git-credential',...args],cwd,quiet);
+const branch='gh-pages';
+const published=git(['ls-remote','--heads',remote,branch],root,true).trim();
+const temp=await fs.mkdtemp(path.join(os.tmpdir(),'sachin-portfolio-pages-'));
+if(published){
+  git(['clone','--quiet','--single-branch','--branch',branch,remote,temp]);
+  for(const item of await fs.readdir(temp))if(item!=='.git')await fs.rm(path.join(temp,item),{recursive:true,force:true});
+}else git(['init','--quiet','--initial-branch',branch,temp]);
+await fs.cp(path.join(root,'dist'),temp,{recursive:true});
+const name=run('git',['log','-1','--format=%an'],root,true).trim();
+const email=run('git',['log','-1','--format=%ae'],root,true).trim();
+git(['config','user.name',name],temp);git(['config','user.email',email],temp);
+git(['add','--all'],temp);
+const changes=git(['status','--porcelain'],temp,true).trim();
+if(!changes){console.log('Published branch already matches this build.');process.exit(0);}
+const source=run('git',['rev-parse','--short','HEAD'],root,true).trim();
+git(['commit','--quiet','-m',`Publish portfolio from ${source}`],temp);
+if(!published)git(['remote','add','origin',remote],temp);
+git(['push','origin',`${branch}:${branch}`],temp);
+console.log(`Pushed verified static files to ${branch}. GitHub Pages will publish the branch.`);

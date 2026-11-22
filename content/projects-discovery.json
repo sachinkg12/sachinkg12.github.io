@@ -1,0 +1,113 @@
+{
+  "projects": [
+    {
+      "slug": "trace",
+      "name": "TRACE",
+      "category": "Evidence-grounded AI",
+      "eyebrow": "Scientific question answering",
+      "summary": "Connect the answer to the paper and its evidence.",
+      "description": "Retrieve scientific papers, locate supporting text, tables, and figures, and validate typed answers against the LitTraceQA task schema.",
+      "stack": [
+        "Python",
+        "Gemini",
+        "Sentence Transformers"
+      ],
+      "source": "https://github.com/sachinkg12/trace",
+      "docs": "https://sachinkg12.github.io/trace/",
+      "paper": "https://aclanthology.org/2026.groundlm-1.86/",
+      "status": "Open source · Published workshop paper",
+      "authors": "Sachin Gupta and Divya Godara",
+      "problem": "Finding the relevant paper does not guarantee that an answer identifies the right source object or matches the required answer structure.",
+      "approach": "Preserve the question’s targets through retrieval, select papers that cover those targets, locate attributed source objects, produce a typed answer, and validate the paper–evidence relationship and output schema.",
+      "result": "A published GroundLM 2026 workshop system paper and public full-generation architecture, configuration, data-fetch utilities, tests, and reproduction guide.",
+      "limit": "The public release provides the full-generation architecture, not the exact composed official prediction file. Hosted model changes can alter generated results.",
+      "sources": [
+        "https://github.com/sachinkg12/trace",
+        "https://aclanthology.org/2026.groundlm-1.86/"
+      ],
+      "visualSuggestion": {
+        "kind": "concept",
+        "label": "Scientific question → target papers → attributed evidence → typed answer",
+        "note": "Use a labeled concept diagram in the same split-card visual style as other projects. Public architecture SVG is available in assets/trace-architecture.svg; it is not an application screenshot."
+      }
+    },
+    {
+      "slug": "routeguard",
+      "name": "RouteGuard",
+      "category": "AI evaluation",
+      "eyebrow": "Cost-aware classification",
+      "summary": "Evaluate when a classifier should defer.",
+      "description": "Compare automatic text classification with human triage under an explicit cost model, using confidence thresholds, calibration checks, and selective-prediction analysis.",
+      "stack": [
+        "Python",
+        "scikit-learn",
+        "Transformers"
+      ],
+      "source": "https://github.com/sachinkg12/RouteGuard",
+      "docs": "https://sachinkg12.github.io/RouteGuard/",
+      "artifact": "https://doi.org/10.5281/zenodo.22609128",
+      "status": "Open source · Accepted at IEEE ICTAI 2026",
+      "paperStatus": "Accepted",
+      "paperTitle": "Cost-Aware Abstention for LLM-Based IT Ticket Classification",
+      "authors": "Sachin Gupta",
+      "problem": "A confidence score can be well calibrated while still failing to distinguish correct predictions from incorrect ones. Wrong automatic routing may also cost more than a deferral.",
+      "approach": "Keep prediction, confidence estimation, abstention policy, and cost evaluation separate. Select thresholds on calibration data, then evaluate the fixed policy once on held-out test data.",
+      "result": "A reusable evaluation framework and a frozen, versioned ICTAI artifact archived on Zenodo. The public README labels the paper accepted, with its IEEE archival record pending.",
+      "limit": "This is an evaluation framework, not a production routing service. Its illustrative costs are not an estimate of an organization’s real costs. The synthetic quickstart checks execution and does not reproduce the paper’s empirical results.",
+      "sources": [
+        "https://github.com/sachinkg12/RouteGuard",
+        "https://sachinkg12.github.io/RouteGuard/",
+        "https://doi.org/10.5281/zenodo.22609128"
+      ],
+      "visualSuggestion": {
+        "kind": "concept",
+        "label": "Classifier → confidence → auto-route or human triage → expected cost",
+        "note": "No public app dashboard exists; do not fabricate one. Use a labeled concept diagram. Do not classify the Zenodo artifact DOI as the paper DOI."
+      }
+    }
+  ],
+  "assets": [
+    {
+      "project": "heaplens",
+      "path": "assets/heaplens-intellij-light.webp",
+      "original": "assets/heaplens-intellij-light.png",
+      "width": 1800,
+      "bytesApprox": 57344,
+      "source": "https://plugins.jetbrains.com/files/35004/screenshot_07640c83-85e2-411c-ab30-87870daf826d",
+      "caption": "HeapLens in IntelliJ IDEA’s light theme: heap composition and retained-size investigation.",
+      "type": "actual product screenshot",
+      "verifiedVisually": true,
+      "recommendation": "Primary graphic showcase; clear light native IDE frame and charts."
+    },
+    {
+      "project": "heaplens",
+      "path": "assets/heaplens-intellij-secondary.webp",
+      "original": "assets/heaplens-intellij-secondary.png",
+      "width": 1800,
+      "bytesApprox": 86016,
+      "source": "https://plugins.jetbrains.com/files/35004/screenshot_5a2c925a-1045-4cc8-a334-128691a80867",
+      "caption": "HeapLens in IntelliJ IDEA’s light theme: investigation leads and retained objects.",
+      "type": "actual product screenshot",
+      "verifiedVisually": true,
+      "recommendation": "Detail page image; UI warnings are investigation leads, not proof of a defect."
+    },
+    {
+      "project": "heaplens",
+      "path": "assets/heaplens-intellij-histogram.webp",
+      "original": "assets/heaplens-intellij-histogram.png",
+      "width": 1800,
+      "bytesApprox": 100352,
+      "source": "https://plugins.jetbrains.com/files/35004/screenshot_a280ca69-ef23-48df-b71e-20aa6895ec5b",
+      "caption": "HeapLens class histogram in IntelliJ IDEA’s light theme.",
+      "type": "actual product screenshot",
+      "verifiedVisually": true,
+      "recommendation": "Nearly all white and neutral; has a native tooltip near the top-left and blue link text."
+    }
+  ],
+  "caveats": [
+    "RouteGuard public README says accepted at IEEE ICTAI 2026, paper DOI and Xplore URL pending. The newly supplied keynote biography says published; prefer the explicit software publication-status record until the publisher confirms.",
+    "No actual UI screenshots were found in public SlideSherlock or Yukti repositories. Give them matching split-card layout and clearly labeled concept diagrams rather than fabricated product screenshots.",
+    "SlideSherlock public docs/architecture.png was saved as a candidate but uses dark blue, purple and magenta. Do not use it in the approved visual direction.",
+    "TRACE’s docs/assets/trace-architecture.svg was saved as a source figure, not an app screenshot."
+  ]
+}

@@ -1,0 +1,12 @@
+.DS_Store
+node_modules/
+dist/
+.superdesign/
+*.log
+# Original downloaded/generation inputs remain local; the site uses optimized assets.
+assets/*.png
+!assets/social-card.png
+assets/heaplens-overview.webp
+assets/heaplens-query.webp
+assets/heaplens-intellij-light.webp
+assets/trace-architecture.svg

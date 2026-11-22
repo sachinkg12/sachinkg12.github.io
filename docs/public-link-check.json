@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://doi.org/10.1145/3837729.3840479",
+    "result": "403 https://dl.acm.org/doi/10.1145/3837729.3840479",
+    "error": null
+  },
+  {
+    "url": "https://aclanthology.org/2026.groundlm-1.5/",
+    "result": "200 https://aclanthology.org/2026.groundlm-1.5/",
+    "error": null
+  },
+  {
+    "url": "https://aclanthology.org/2026.groundlm-1.86/",
+    "result": "200 https://aclanthology.org/2026.groundlm-1.86/",
+    "error": null
+  },
+  {
+    "url": "https://aclanthology.org/2026.groundlm-1.78/",
+    "result": "200 https://aclanthology.org/2026.groundlm-1.78/",
+    "error": null
+  },
+  {
+    "url": "https://aclanthology.org/2026.groundlm-1.79/",
+    "result": "200 https://aclanthology.org/2026.groundlm-1.79/",
+    "error": null
+  },
+  {
+    "url": "https://aclanthology.org/2026.docinsights-1.32/",
+    "result": "200 https://aclanthology.org/2026.docinsights-1.32/",
+    "error": null
+  },
+  {
+    "url": "https://www.guptasachinn.com/activities/ai-engineer-2026",
+    "result": "200 https://www.guptasachinn.com/activities/ai-engineer-2026",
+    "error": null
+  },
+  {
+    "url": "https://www.guptasachinn.com/activities/ai-engineer-feature-flags",
+    "result": "200 https://www.guptasachinn.com/activities/ai-engineer-feature-flags",
+    "error": null
+  },
+  {
+    "url": "https://www.guptasachinn.com/activities/platformcon-2026",
+    "result": "200 https://www.guptasachinn.com/activities/platformcon-2026",
+    "error": null
+  },
+  {
+    "url": "https://www.guptasachinn.com/activities/wearedevelopers",
+    "result": "200 https://www.guptasachinn.com/activities/wearedevelopers",
+    "error": null
+  },
+  {
+    "url": "https://www.guptasachinn.com/activities/conf42-prompt-2026",
+    "result": "200 https://www.guptasachinn.com/activities/conf42-prompt-2026",
+    "error": null
+  },
+  {
+    "url": "https://www.guptasachinn.com/activities/developerweek-2026",
+    "result": "200 https://www.guptasachinn.com/activities/developerweek-2026",
+    "error": null
+  },
+  {
+    "url": "https://www.guptasachinn.com/writing/rag-attribution",
+    "result": "200 https://www.guptasachinn.com/writing/rag-attribution",
+    "error": null
+  },
+  {
+    "url": "https://www.guptasachinn.com/activities/confidential-computing-summit-2026",
+    "result": "200 https://www.guptasachinn.com/activities/confidential-computing-summit-2026",
+    "error": null
+  }
+]
