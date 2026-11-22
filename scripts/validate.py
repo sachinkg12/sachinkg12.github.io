@@ -15,7 +15,7 @@ class Page(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.ids = []; self.links = []; self.images = []; self.h1 = 0
         self.anchor_depth = 0; self.nested = False; self.canonical = []; self.lang = None
-        self.paper_ids = []; self.service_ids = []
+        self.paper_ids = []; self.service_ids = []; self.resources = []
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if 'id' in a: self.ids.append(a['id'])
@@ -25,6 +25,8 @@ class Page(HTMLParser):
             self.nested |= self.anchor_depth > 0; self.anchor_depth += 1
             self.links.append(a.get('href', ''))
         if tag == 'img': self.images.append(a)
+        if tag == 'link' and a.get('rel') == 'stylesheet': self.resources.append(a.get('href', ''))
+        if tag == 'script' and a.get('src'): self.resources.append(a['src'])
         if tag == 'link' and a.get('rel') == 'canonical': self.canonical.append(a.get('href'))
         if 'data-paper' in a: self.paper_ids.append(a['id'])
         if 'data-service-id' in a: self.service_ids.append(a['data-service-id'])
@@ -60,6 +62,10 @@ for file in OUT.rglob('*.html'):
         if 'alt' not in image: errors.append(f'{rel}: image without alternate text')
         if not image.get('src', '').startswith('/assets/'): errors.append(f'{rel}: nonlocal product image')
         elif not (OUT / image['src'].lstrip('/')).is_file(): errors.append(f'{rel}: missing image {image["src"]}')
+    for resource in page.resources:
+        u = urlsplit(resource)
+        if not u.scheme and not u.netloc and not (OUT / unquote(u.path).lstrip('/')).is_file():
+            errors.append(f'{rel}: missing stylesheet or script {resource}')
 
 # Every known paper must appear exactly once on the home and complete research page.
 expected = {'paper-' + paper['id'] for paper in data['papers']}

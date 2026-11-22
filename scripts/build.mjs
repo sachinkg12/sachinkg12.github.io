@@ -1,10 +1,20 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
 import {home,projectsPage,researchPage,speakingPage,aboutPage,cvPage,projectPage,notFound,bibtex,researchServicePage} from '../site/templates.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const out=path.join(root,'dist');
 const d=JSON.parse(await fs.readFile(path.join(root,'content/portfolio.json'),'utf8'));
+// Changed browser assets get new URLs, so returning visitors load matching styles and scripts.
+const browserAssets=[];
+d.assets={};
+for(const extension of ['css','js']){
+  const bytes=await fs.readFile(path.join(root,'site',`site.${extension}`));
+  const name=`site.${createHash('sha256').update(bytes).digest('hex').slice(0,12)}.${extension}`;
+  browserAssets.push({extension,name,bytes});
+  d.assets[extension]='/assets/'+name;
+}
 if(new Set(d.projects.map(p=>p.slug)).size!==d.projects.length)throw Error('Duplicate project slug');
 if(new Set(d.papers.map(p=>p.id)).size!==d.papers.length)throw Error('Duplicate paper ID');
 for(const p of d.papers) {
@@ -21,8 +31,11 @@ await fs.mkdir(path.join(out,'assets'),{recursive:true});
 // Explicit public assets keep design references, source records, and unused artwork out of the deployed site.
 const assets=['sachin-gupta.webp','sachin-gupta.jpg','sachin-desk-illustration.webp','heaplens-intellij-histogram.webp','heaplens-intellij-secondary.webp','favicon.svg','social-card.svg','social-card.png'];
 for(const asset of assets)await fs.copyFile(path.join(root,'assets',asset),path.join(out,'assets',asset));
-await fs.copyFile(path.join(root,'site/site.css'),path.join(out,'assets/site.css'));
-await fs.copyFile(path.join(root,'site/site.js'),path.join(out,'assets/site.js'));
+for(const {extension,name,bytes} of browserAssets){
+  await fs.writeFile(path.join(out,'assets',name),bytes);
+  // Preserve the original URLs for older cached pages.
+  await fs.writeFile(path.join(out,'assets',`site.${extension}`),bytes);
+}
 await fs.mkdir(path.join(out,'citations'),{recursive:true});
 for(const p of d.papers)await fs.writeFile(path.join(out,'citations',p.id+'.bib'),bibtex(p));
 await fs.writeFile(path.join(out,'citations/all.bib'),d.papers.map(bibtex).join('\n'));
