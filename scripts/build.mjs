@@ -9,12 +9,14 @@ const d=JSON.parse(await fs.readFile(path.join(root,'content/portfolio.json'),'u
 // Changed browser assets get new URLs, so returning visitors load matching styles and scripts.
 const browserAssets=[];
 d.assets={};
-for(const extension of ['css','js']){
-  const bytes=await fs.readFile(path.join(root,'site',`site.${extension}`));
-  const name=`site.${createHash('sha256').update(bytes).digest('hex').slice(0,12)}.${extension}`;
-  browserAssets.push({extension,name,bytes});
-  d.assets[extension]='/assets/'+name;
+for(const [key,source] of [['css','site.css'],['js','site.js'],['cvCss','cv.css'],['cvJs','cv.js']]){
+  const bytes=await fs.readFile(path.join(root,'site',source));
+  const extension=path.extname(source);
+  const name=`${path.basename(source,extension)}.${createHash('sha256').update(bytes).digest('hex').slice(0,12)}${extension}`;
+  browserAssets.push({source,name,bytes});
+  d.assets[key]='/assets/'+name;
 }
+const cvTemplate=await fs.readFile(path.join(root,'site/cv.html'),'utf8');
 if(new Set(d.projects.map(p=>p.slug)).size!==d.projects.length)throw Error('Duplicate project slug');
 if(new Set(d.papers.map(p=>p.id)).size!==d.papers.length)throw Error('Duplicate paper ID');
 for(const p of d.papers) {
@@ -24,17 +26,17 @@ for(const p of d.papers) {
 if(new Set(d.service.map(s=>s.id)).size!==d.service.length)throw Error('Duplicate research-service record');
 for(const s of d.service)if(!Number.isInteger(s.papers)||s.papers<0||!s.url?.startsWith('https://'))throw Error('Invalid service record: '+s.id);
 await fs.rm(out,{recursive:true,force:true});await fs.mkdir(out,{recursive:true});
-const pages=new Map([['/',home(d)],['/projects/',projectsPage(d)],['/research/',researchPage(d)],['/research-service/',researchServicePage(d)],['/speaking/',speakingPage(d)],['/about/',aboutPage(d)],['/cv/',cvPage(d)],['/404.html',notFound(d)]]);
+const pages=new Map([['/',home(d)],['/projects/',projectsPage(d)],['/research/',researchPage(d)],['/research-service/',researchServicePage(d)],['/speaking/',speakingPage(d)],['/about/',aboutPage(d)],['/cv/',cvPage(d,cvTemplate)],['/404.html',notFound(d)]]);
 for(const p of d.projects)pages.set(`/projects/${p.slug}/`,projectPage(p,d));
 for(const [url,html]of pages){const dest=path.join(out,url.endsWith('/')?url+'index.html':url);await fs.mkdir(path.dirname(dest),{recursive:true});await fs.writeFile(dest,html);}
 await fs.mkdir(path.join(out,'assets'),{recursive:true});
 // Explicit public assets keep design references, source records, and unused artwork out of the deployed site.
 const assets=['sachin-gupta.webp','sachin-gupta.jpg','sachin-desk-illustration.webp','heaplens-intellij-histogram.webp','heaplens-intellij-secondary.webp','favicon.svg','social-card.svg','social-card.png'];
 for(const asset of assets)await fs.copyFile(path.join(root,'assets',asset),path.join(out,'assets',asset));
-for(const {extension,name,bytes} of browserAssets){
+for(const {source,name,bytes} of browserAssets){
   await fs.writeFile(path.join(out,'assets',name),bytes);
   // Preserve the original URLs for older cached pages.
-  await fs.writeFile(path.join(out,'assets',`site.${extension}`),bytes);
+  await fs.writeFile(path.join(out,'assets',source),bytes);
 }
 await fs.mkdir(path.join(out,'citations'),{recursive:true});
 for(const p of d.papers)await fs.writeFile(path.join(out,'citations',p.id+'.bib'),bibtex(p));

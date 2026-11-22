@@ -19,6 +19,10 @@ Open **http://127.0.0.1:4173/**. Rebuild with `npm run build` after source chang
 
 Edit **`content/portfolio.json`**. It contains the public profile, projects, papers, talks, keynote, and selected service records. Every project uses the same split-card layout, with a real screenshot or a clearly labeled concept diagram.
 
+The **Professional CV** is the separately approved document-based layout in `site/cv.html`. It preserves the supplied CV's selected publications, career details, service, presentations, and education. Its content is a snapshot of the supplied CV; the broader portfolio bibliography and service inventory remain in `content/portfolio.json`. Provenance and distinctions are recorded in `docs/professional-cv-sources.md`.
+
+The CV uses a compiled local stylesheet and script, with no browser-side styling compiler. When its utility classes change, regenerate the tracked `site/cv.css` with `npm run build:cv-css` (the optional compiler command uses Tailwind CSS 3.4.17). Ordinary content edits and `npm test` require no npm installation. Custom CV styles are in `site/cv.input.css`, and the theme is in `site/cv.tailwind.config.cjs`.
+
 For papers, keep `status` as `Published`, `Accepted`, or `Preprint`. One work appears once: if an accepted or published paper also has an arXiv version, put that URL in `preprint`. Preserve author order, actual venue/track, and publication status. A software artifact DOI is separate from a paper DOI.
 
 Source verification and asset provenance are documented in `docs/`. The initial bibliography was reconciled against the public author profile, publisher records, conference program, and arXiv author feed on November 21, 2026. The initial inventory has seven published papers, two accepted manuscripts, and one standalone preprint. Mentorship recognition is stored separately from the 23 completed research-service roles. The complete role list is published at `/research-service/`, grouped into area-chair work, reviewing and program committees, and artifact evaluation. Dates and counts follow the supplied role records; organiser contacts and tracking fields are not published.

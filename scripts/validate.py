@@ -16,6 +16,7 @@ class Page(HTMLParser):
         self.ids = []; self.links = []; self.images = []; self.h1 = 0
         self.anchor_depth = 0; self.nested = False; self.canonical = []; self.lang = None
         self.paper_ids = []; self.service_ids = []; self.resources = []
+        self.cv_papers = []; self.cv_talks = []; self.cv_appointments = []
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if 'id' in a: self.ids.append(a['id'])
@@ -30,6 +31,9 @@ class Page(HTMLParser):
         if tag == 'link' and a.get('rel') == 'canonical': self.canonical.append(a.get('href'))
         if 'data-paper' in a: self.paper_ids.append(a['id'])
         if 'data-service-id' in a: self.service_ids.append(a['data-service-id'])
+        if 'data-cv-paper' in a: self.cv_papers.append(a['data-cv-paper'])
+        if 'data-cv-talk' in a: self.cv_talks.append(a['data-cv-talk'])
+        if 'data-cv-appointment' in a: self.cv_appointments.append(a['data-cv-appointment'])
     def handle_endtag(self, tag):
         if tag == 'a': self.anchor_depth -= 1
 
@@ -100,6 +104,23 @@ for route in ['index.html', 'about/index.html', 'cv/index.html']:
 for row in data['service']:
     if any(k in row for k in ['email','contact','chair','deadline','letterReceived','wos']):
         errors.append('Nonpublic tracking fields copied into portfolio service data')
+# The approved CV contains selected work from the supplied three-page CV, not every portfolio record.
+cv_page = pages[OUT / 'cv/index.html']
+cv_html = (OUT / 'cv/index.html').read_text()
+cv_expected = {'heaplens','agenttrustci','toolcontractgate','evicalc','financial-sms','slide-narration','trace','veritygate','routeguard'}
+if set(cv_page.cv_papers) != cv_expected or len(cv_page.cv_papers) != len(cv_expected):
+    errors.append('Professional CV omits or duplicates a selected publication')
+for paper in data['papers']:
+    if paper['id'] in cv_expected and paper['title'] not in cv_html:
+        errors.append('Professional CV loses the exact publication title: '+paper['id'])
+if len(set(cv_page.cv_talks)) != 11 or len(cv_page.cv_talks) != 11:
+    errors.append('Professional CV must retain all 11 supplied presentations')
+if len(set(cv_page.cv_appointments)) != 4 or len(cv_page.cv_appointments) != 4:
+    errors.append('Professional CV must retain the four separate 2027 appointments')
+if 'Expected Sep 2027' not in cv_html:
+    errors.append('Professional CV must preserve the expected degree date')
+if 'cdn.tailwindcss.com' in cv_html or '__CV_' in cv_html or 'noindex' in cv_html:
+    errors.append('Professional CV still contains preview-only runtime or metadata')
 if errors:
     raise SystemExit('\n'.join(errors))
 print(f'Validated {len(pages)} pages, {len(data["papers"])} distinct papers, all local links/assets, and preserved learning notes.')
