@@ -115,8 +115,11 @@ for paper in data['papers']:
         errors.append('Professional CV loses the exact publication title: '+paper['id'])
 if len(set(cv_page.cv_talks)) != 11 or len(cv_page.cv_talks) != 11:
     errors.append('Professional CV must retain all 11 supplied presentations')
-if len(set(cv_page.cv_appointments)) != 4 or len(cv_page.cv_appointments) != 4:
-    errors.append('Professional CV must retain the four separate 2027 appointments')
+appointment_ids = {s['id'] for s in data['service'] if s['papers'] is None and s['type'] == 'Peer review'}
+if set(cv_page.cv_appointments) != appointment_ids or len(cv_page.cv_appointments) != len(appointment_ids):
+    errors.append('Professional CV must match the committee appointments without paper counts')
+if any('cpal' in s['id'].lower() for s in data['service']):
+    errors.append('CPAL is excluded from the requested service update')
 if 'Expected Sep 2027' not in cv_html:
     errors.append('Professional CV must preserve the expected degree date')
 if 'cdn.tailwindcss.com' in cv_html or '__CV_' in cv_html or 'noindex' in cv_html:

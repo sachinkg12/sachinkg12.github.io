@@ -19,13 +19,13 @@ Open **http://127.0.0.1:4173/**. Rebuild with `npm run build` after source chang
 
 Edit **`content/portfolio.json`**. It contains the public profile, projects, papers, talks, keynote, and selected service records. Every project uses the same split-card layout, with a real screenshot or a clearly labeled concept diagram.
 
-The **Professional CV** is the separately approved document-based layout in `site/cv.html`. It preserves the supplied CV's selected publications, career details, service, presentations, and education. Its content is a snapshot of the supplied CV; the broader portfolio bibliography and service inventory remain in `content/portfolio.json`. Provenance and distinctions are recorded in `docs/professional-cv-sources.md`.
+The **Professional CV** is the separately approved document-based layout in `site/cv.html`. It preserves the supplied CV's selected publications, career details, service, presentations, and education. Its non-service content is a snapshot of the supplied CV. The research-service section is rendered from `content/portfolio.json` by `site/cv-service.mjs`, using the same status and workload rules as the research-service page. Provenance and distinctions are recorded in `docs/professional-cv-sources.md`.
 
 The CV uses a compiled local stylesheet and script, with no browser-side styling compiler. When its utility classes change, regenerate the tracked `site/cv.css` with `npm run build:cv-css` (the optional compiler command uses Tailwind CSS 3.4.17). Ordinary content edits and `npm test` require no npm installation. Custom CV styles are in `site/cv.input.css`, and the theme is in `site/cv.tailwind.config.cjs`.
 
 For papers, keep `status` as `Published`, `Accepted`, or `Preprint`. One work appears once: if an accepted or published paper also has an arXiv version, put that URL in `preprint`. Preserve author order, actual venue/track, and publication status. A software artifact DOI is separate from a paper DOI.
 
-Source verification and asset provenance are documented in `docs/`. The initial bibliography was reconciled against the public author profile, publisher records, conference program, and arXiv author feed on November 21, 2026. The initial inventory has seven published papers, two accepted manuscripts, and one standalone preprint. Mentorship recognition is stored separately from the 23 completed research-service roles. The complete role list is published at `/research-service/`, grouped into area-chair work, reviewing and program committees, and artifact evaluation. Dates and counts follow the supplied role records; organiser contacts and tracking fields are not published.
+Source verification and asset provenance are documented in `docs/`. The initial bibliography was reconciled against the public author profile, publisher records, conference program, and arXiv author feed on November 21, 2026. The initial inventory has seven published papers, two accepted manuscripts, and one standalone preprint. Mentorship recognition is stored separately from the 29 research-service roles. Completed service is separated from current appointments and paper assignments. The complete role list is published at `/research-service/`, grouped into area-chair work, reviewing and program committees, and artifact evaluation. Dates and counts follow the supplied role records; organiser contacts and tracking fields are not published.
 
 ## Publish
 
@@ -50,3 +50,9 @@ The original Docsify entry, sidebar, and README are preserved under `legacy/`. E
 `npm test` builds every route and checks local links and fragments, image assets and alternate text, canonical URLs, duplicate IDs, complete paper coverage on the home and research pages, citations, the SCIS keynote, and byte-for-byte preservation of learning notes. Native browser checks cover navigation, search, status filters, citation copying, and the rendered project layouts.
 
 The personal desk illustration was created with the built-in ImageGen tool, using the public GitHub portrait as a reference. Its prompt is recorded in `docs/illustration-prompt.txt`. HeapLens images are actual light-theme IntelliJ screenshots from its JetBrains Marketplace listing. Tanay Arora’s portfolio informed the layout direction; his artwork and content are not used in the published site.
+
+## Review records across the two websites
+
+`service.status` distinguishes `Completed`, `Pending`, and `Appointed`. Unknown appointment workloads use `papers: null`; they are not zero reviews. The public manuscript-review total includes all recorded paper workloads and does not claim they are all completed. Completion status remains in source metadata. Missing counts display as a dash. Optional `workloadUnit` preserves scope such as smoke-test evaluations.
+
+To compare the portfolio's records with the writing-site checkout, run `node scripts/check-review-sync.mjs /absolute/path/to/writing-site`. The writing site uses its existing `gray-matter` dependency and optional `reviewStatus` and `reviewKind` metadata. The comparison checks role coverage, paper counts, and status. CPAL remains unpublished and excluded until requested.

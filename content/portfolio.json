@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-26",
   "person": {
     "name": "Sachin Gupta",
     "role": "Backend engineer & independent researcher",
@@ -668,7 +668,8 @@
       "url": "https://groundlm.github.io/grouplm_emnlp2026/",
       "scope": "Workshop at EMNLP 2026",
       "status": "Completed",
-      "writeup": "https://www.guptasachinn.com/activities/groundlm-2026-area-chair"
+      "writeup": "https://www.guptasachinn.com/activities/groundlm-2026-area-chair",
+      "description": "Oversaw five submissions by weighing the reviews and author responses and writing meta-review recommendations for the organizers' decision process."
     },
     {
       "id": "groundlm-2026",
@@ -733,7 +734,9 @@
       "url": "https://www.acsac.org/",
       "scope": "IEEE conference",
       "status": "Completed",
-      "writeup": "https://www.guptasachinn.com/activities/acsac-2026-ae"
+      "writeup": "https://www.guptasachinn.com/activities/acsac-2026-ae",
+      "note": "The organizer acknowledgment does not itemize an individual count.",
+      "workloadUnit": "artifact evaluation"
     },
     {
       "id": "ieee-access",
@@ -741,12 +744,14 @@
       "title": "IEEE Access",
       "role": "Peer reviewer",
       "type": "Peer review",
-      "papers": 1,
-      "date": "2026-09-15",
+      "papers": 2,
+      "date": null,
       "url": "https://ieeeaccess.ieee.org/",
       "scope": "Journal",
       "status": "Completed",
-      "writeup": "https://www.guptasachinn.com/activities/ieee-access"
+      "writeup": "https://www.guptasachinn.com/activities/ieee-access",
+      "dateLabel": "Nov 2026",
+      "year": 2026
     },
     {
       "id": "ieee-bigdata-2026",
@@ -806,12 +811,14 @@
       "title": "IEEE SoutheastCon 2027",
       "role": "Technical program committee",
       "type": "Peer review",
-      "papers": 6,
+      "papers": 10,
       "date": "2026-07-08",
       "url": "https://ieeesoutheastcon.org/",
       "scope": "IEEE Region 3 conference",
       "status": "Completed",
-      "writeup": "https://www.guptasachinn.com/activities/southeastcon-2027"
+      "writeup": "https://www.guptasachinn.com/activities/southeastcon-2027",
+      "year": 2027,
+      "completedYear": 2026
     },
     {
       "id": "ase-ae",
@@ -863,7 +870,8 @@
       "url": "https://conferences.i-cav.org/2026/",
       "scope": "Computer Aided Verification",
       "status": "Completed",
-      "writeup": "https://www.guptasachinn.com/activities/cav-ae"
+      "writeup": "https://www.guptasachinn.com/activities/cav-ae",
+      "workloadUnit": "smoke-test evaluation"
     },
     {
       "id": "sasigd",
@@ -877,6 +885,95 @@
       "scope": "Program committee peer review",
       "status": "Completed",
       "writeup": "https://www.guptasachinn.com/activities/sasigd"
+    },
+    {
+      "id": "thewebconf-2027",
+      "parent": "The Web Conference",
+      "title": "The Web Conference 2027",
+      "role": "Research Track reviewer",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-11-10",
+      "year": 2027,
+      "url": "https://www2027.thewebconf.org/",
+      "scope": "Research Track",
+      "status": "Pending",
+      "writeup": "https://www.guptasachinn.com/activities/thewebconf-2027"
+    },
+    {
+      "id": "aaai-trust4rsi-agent-2027",
+      "parent": "AAAI",
+      "title": "Trust4RSI-Agent 2027",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-11-13",
+      "year": 2027,
+      "url": "https://trust4rsi-agent.github.io/AAAI2027/",
+      "scope": "Workshop at AAAI 2027",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/aaai-trust4rsi-agent-2027",
+      "completedYear": 2026
+    },
+    {
+      "id": "aaai-social-simulation-2027",
+      "parent": "AAAI",
+      "title": "Social Simulation with LLMs 2027",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-11-26",
+      "year": 2027,
+      "url": "https://sites.google.com/view/social-sims-with-llms/social-sim27",
+      "scope": "Workshop at AAAI 2027",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/aaai-social-simulation-2027",
+      "completedYear": 2026
+    },
+    {
+      "id": "aaai-astad-2027",
+      "parent": "AAAI",
+      "title": "ASTAD 2027",
+      "role": "Peer reviewer",
+      "type": "Peer review",
+      "papers": 3,
+      "date": "2026-11-13",
+      "year": 2027,
+      "url": "https://ismart.ece.mcgill.ca/astad4/",
+      "scope": "Workshop at AAAI 2027",
+      "status": "Completed",
+      "writeup": "https://www.guptasachinn.com/activities/aaai-astad-2027",
+      "completedYear": 2026
+    },
+    {
+      "id": "xp-2027-industry-practice",
+      "parent": "XP",
+      "title": "XP 2027 Industry & Practice",
+      "role": "Program committee member",
+      "type": "Peer review",
+      "papers": null,
+      "date": null,
+      "dateLabel": "May 31–Jun 3, 2027",
+      "year": 2027,
+      "url": "https://conf.researchr.org/committee/xp-2027/xp-2027-industry---practice-program-committee",
+      "scope": "Industry & Practice track · Tampere, Finland",
+      "status": "Appointed",
+      "writeup": "https://www.guptasachinn.com/activities/xp-2027-industry-practice"
+    },
+    {
+      "id": "icpc-2027-tool-demonstration",
+      "parent": "ICPC",
+      "title": "ICPC 2027 Tool Demonstration",
+      "role": "Program committee member",
+      "type": "Peer review",
+      "papers": null,
+      "date": null,
+      "dateLabel": "2027 appointment",
+      "year": 2027,
+      "url": "https://icpc2027-td.hotcrp.com/users/pc",
+      "scope": "Tool Demonstration track",
+      "status": "Appointed",
+      "writeup": "https://www.guptasachinn.com/activities/icpc-2027-tool-demonstration"
     }
   ],
   "writing": [

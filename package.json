@@ -7,7 +7,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "dev": "node scripts/build.mjs && node scripts/serve.mjs",
-    "test": "node scripts/build.mjs && python3 scripts/validate.py",
+    "test": "node --test tests/*.test.mjs && node scripts/build.mjs && python3 scripts/validate.py",
     "publish:site": "node scripts/publish.mjs",
     "build:cv-css": "npx --yes --package tailwindcss@3.4.17 tailwindcss -c site/cv.tailwind.config.cjs -i site/cv.input.css -o site/cv.css --minify"
   },

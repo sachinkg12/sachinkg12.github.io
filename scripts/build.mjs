@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {serviceStatuses} from '../site/service.mjs';
 import {home,projectsPage,researchPage,speakingPage,aboutPage,cvPage,projectPage,notFound,bibtex,researchServicePage} from '../site/templates.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const out=path.join(root,'dist');
@@ -24,7 +25,10 @@ for(const p of d.papers) {
   if(!p.title||!p.authors||!p.url?.startsWith('https://'))throw Error('Incomplete paper: '+p.id);
 }
 if(new Set(d.service.map(s=>s.id)).size!==d.service.length)throw Error('Duplicate research-service record');
-for(const s of d.service)if(!Number.isInteger(s.papers)||s.papers<0||!s.url?.startsWith('https://'))throw Error('Invalid service record: '+s.id);
+for(const s of d.service){
+  if(!serviceStatuses.includes(s.status)||!s.url?.startsWith('https://')||(!s.date&&!s.dateLabel))throw Error('Invalid service record: '+s.id);
+  if(s.papers===null?s.status!=='Appointed':!Number.isInteger(s.papers)||s.papers<0)throw Error('Invalid service workload: '+s.id);
+}
 await fs.rm(out,{recursive:true,force:true});await fs.mkdir(out,{recursive:true});
 const pages=new Map([['/',home(d)],['/projects/',projectsPage(d)],['/research/',researchPage(d)],['/research-service/',researchServicePage(d)],['/speaking/',speakingPage(d)],['/about/',aboutPage(d)],['/cv/',cvPage(d,cvTemplate)],['/404.html',notFound(d)]]);
 for(const p of d.projects)pages.set(`/projects/${p.slug}/`,projectPage(p,d));
